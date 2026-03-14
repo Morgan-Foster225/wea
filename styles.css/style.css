@@ -1,0 +1,438 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Root color variables (site theme) */
+:root {
+    --primary: #D4B06A;          /* Main gold color */
+    --accent: #C7A892;           /* Secondary accent color */
+    --bg: #FDF9F2;               /* Page background color */
+    --surface: #FFFFFF;          /* Card/surface background */
+    --text: #4A4038;             /* Main text color */
+    --muted: #8A7A6C;            /* Muted/secondary text */
+    --border: #EFE4D3;           /* Border/light divider color */
+    --hero-gradient-1: #EFE4D3;  /* Hero gradient start */
+    --hero-gradient-2: #D4B06A;  /* Hero gradient end */
+}
+
+/* Reset default browser spacing + use border-box model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Times New Roman', Times, serif,; /* Main font */
+    color: var(--text);
+    line-height: 1.6;
+    background-color: var(--bg);
+}
+
+/* Header (navigation bar) */
+header {
+    width: 100%;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: var(--border);
+    z-index: 1000; /* Keep header above other elements */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: top 0.3s ease; /* Smooth hide/show animation */
+}
+
+/* Header hide animation (first rule) */
+.header.hide {
+    top: -0px;
+}
+
+/* Class added by JavaScript to hide header */
+header.hide {
+    top: -120px;
+}
+
+/* Header base positioning */
+.header{
+    position:fixed;
+    top:0;
+    width:100%
+}
+
+/* Hide header (duplicate rule for JS control) */
+.header.hide{
+    top:-120px;
+}
+
+/* Small logo size */
+.logoHeader{
+width:20px;
+height: auto;
+}
+
+/* Global image styling */
+img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+
+/* Header logo image */
+header img{
+    max-width: 230px;
+    height: auto;
+}
+
+/* Logo text styling */
+.logo {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 15px;
+    color: var(--primary);
+}
+
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding:10px;
+    font-size:larger;
+}
+
+/* Navigation hover effect */
+nav a:hover {
+    color: var(--accent);
+}
+
+/* Hero section styling */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, var(--hero-gradient-1), var(--hero-gradient-2));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+/* Hero content container */
+.hero-content {
+    max-width: 800px;
+}
+
+/* Hero heading */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Hero description text */
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Button group layout */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Remove underline from button links */
+.buttons a {
+    text-decoration: none;
+}
+
+/* Base button styling */
+.btn {
+    padding: 14px 28px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Primary button */
+.btn-primary {
+    background: var(--surface);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Primary button hover */
+.btn-primary:hover {
+    background: var(--border);
+}
+
+/* Secondary button */
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+/* Secondary button hover */
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* Section spacing */
+section {
+    padding: 80px 60px;
+}
+
+/* Section title styling */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: var(--accent);
+}
+
+/* Impact stats layout */
+.impact {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+/* Impact number styling */
+.impact-item h3 {
+    font-size: 40px;
+    color: var(--primary);
+}
+
+/* Services grid layout */
+.services-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Clickable service card */
+.card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background:white;
+    padding: 40px;
+    border-radius: 16px;
+    width: 650px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Card image */
+.card img {
+    width: 150px;
+    text-align: center;
+}
+
+/* Second card image size */
+.cardTwo img {
+    width: 450px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Card hover animation */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    background: var(--surface);
+}
+
+/* Additional hover transform */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card title */
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+/* Global image max width override */
+img{
+    max-width: 220px;
+    height: auto;
+    text-align: center;
+}
+
+/* Testimonials section */
+.testimonials {
+    background: var(--bg);
+    text-align: center;
+}
+
+/* Individual testimonial */
+.testimonial {
+    max-width: 700px;
+    margin: 20px auto;
+    font-style: italic;
+}
+
+/* Footer styling */
+.footer{
+  background:var(--primary);
+  color:white;
+  padding:60px 20px 20px;
+}
+
+.footer-container{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-column h3{
+  color:var(--bg);
+  margin-bottom:10px;
+}
+
+.footer-column h4{
+  color:var(--bg);
+  margin-bottom:15px;
+}
+
+.footer-column p{
+  line-height:1.6;
+  opacity:.9;
+}
+
+.footer-column a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  margin-bottom:10px;
+}
+
+.footer-column a:hover{
+  color:var(--accent);
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid #444;
+  font-size:14px;
+  opacity:.7;
+}
+/* Responsive styles for tablets/mobile */
+@media(max-width: 768px) {
+    header {
+        padding: 10px;
+        flex-direction: column;
+    }
+.hero{
+    margin-top:5rem;
+    padding:2rem;
+}
+    .hero h1 {
+        font-size: 32px;
+    }
+    header.hide {
+    top: -80px;
+      z-index: 5000; /* Keep header above other elements */
+}
+
+}
+
+/* ===== FORM SECTIONS ===== */
+
+/* Form section background + spacing */
+.form-section {
+    padding: 100px 20px;
+    background: var(--bg);
+}
+
+/* Form container card */
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    background: var(--surface);
+    padding: 50px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Form heading */
+.form-container h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+/* Inputs, selects, textarea styling */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 16px;
+    background: var(--bg);
+}
+
+/* Textarea size control */
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Focus state for inputs */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Submit button */
+.form-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Submit button hover */
+.form-btn:hover {
+    background: var(--accent);
+}

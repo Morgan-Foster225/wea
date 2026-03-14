@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Partner</title>
+    <link rel="stylesheet" href="styles.css/style.css">
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logoimg">
+        <img src="images/we1a_logo_no_bg.png">
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="impact.html">Impact</a>
+        <a href="getInvolved.html">Get Involved</a>
+        <a href="donate.html">Donate</a>
+      
+    </nav>
+</header>
+
+<section class="form-section">
+    <div class="form-container">
+        <h2>Become a Partner</h2>
+
+        <form id="partnerForm">
+
+            <div class="form-group">
+                <label>Organization Name</label>
+                <input type="text" name="organization" required>
+            </div>
+
+            <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" name="contact_person" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Type of Partnership</label>
+                <select name="partnership_type">
+                    <option>Funding</option>
+                    <option>Program Collaboration</option>
+                    <option>Volunteer Support</option>
+                    <option>Housing Resources</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>How would you like to partner?</label>
+                <textarea name="message" required></textarea>
+            </div>
+
+            <button type="submit" class="form-btn">
+                Submit Partnership Request
+            </button>
+
+            <p id="formMessage" style="margin-top:15px;"></p>
+
+        </form>
+    </div>
+</section>
+
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- Organization Info -->
+    <div class="footer-column">
+      <h3>WE1A</h3>
+      <p>
+        Supporting women impacted by incarceration, addiction, and trauma
+         through recovery programs <!--housing support, --> and community care. 
+      </p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="#about.html">About</a>
+      <a href="#programs.html">Programs</a>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <a href="mailto:cwilliams@we1a.org">Email Us</a>
+      <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 WE1A | Divinity House Support Services
+  </div>
+
+</footer>
+</body>
+</html>
