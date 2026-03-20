@@ -1,68 +1,60 @@
 let lastScroll = 0;
 const header = document.querySelector(".header");
-const delta = 10;            // Minimum scroll to trigger hide/show
-const headerHeight = header.offsetHeight;
+const delta = 10;
 
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
+if (header) {
+    const headerHeight = header.offsetHeight;
 
-    // Only run if scroll is more than delta
-    if (Math.abs(currentScroll - lastScroll) <= delta) return;
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
 
-    if (currentScroll > lastScroll && currentScroll > headerHeight) {
-        // Scrolling down
-        header.classList.add("hide");
-    } else if (currentScroll + window.innerHeight < document.body.scrollHeight) {
-        // Scrolling up
-        header.classList.remove("hide");
-    }
+        if (Math.abs(currentScroll - lastScroll) <= delta) return;
 
-    lastScroll = currentScroll;
-});
+        if (currentScroll > lastScroll && currentScroll > headerHeight) {
+            header.classList.add("hide");
+        } else {
+            header.classList.remove("hide");
+        }
 
+        lastScroll = currentScroll;
+    });
+}
+
+
+/* ==========================
+   YOUTUBE VIDEO SYSTEM
+========================== */
 
 const videos = [
     {
-        src: "videos/Thomas-Keel.mp4",
-        title: "Mahogany's Story ",
-        description: "Mahogany's shares her journey of  growth, and rebuilding life after incarceration through structured support, using tactics learned while particapting and coummity found in wea1."
+        src: "https://www.youtube.com/embed/qta77jp_Qro",
+        title: "Mahogany's Impact Story",
+        description: "Mahogany shares how she deeply appreciated the schedule and structure the program offered, finding comfort and stability in the consistency it provided. The thoughtful organization allowed her to fully engage with each session, and she continues to use the valuable information and tools she learned to this day."
     },
     {
-        src: "videos/LeesImpact.mp4",
-        title: "Lee's Impact Story",
-        description: "Lee reflects on overcoming trauma with wea1 while rediscovering identity, stability, and hope."
+        src: "https://www.youtube.com/embed/CoNxYJSefls",
+        title: "Joan's Impact Story",
+        description: "Joan shares that when she first joined the program, she was in a very dark place, carrying a great deal of pain and emotional baggage. Initially, she signed up simply out of boredom, not expecting it to have much of an impact. However, after just a few sessions, she began to experience something she hadn’t felt in a long time—a sense of safety and belonging."
     },
     {
-        src: "videos/Richardson.mp4",
-        title: "Cindy's Story",
-        description: "A powerful story of resilience and transformation made possible through strong bonds, mentorship and sisterhood."
+        src: "https://www.youtube.com/embed/q68hEpUcoRI",
+        title: "Syndi's Impact Story",
+        description: "Syndi shares that she originally had no real interest in the program and joined without many expectations. However, after attending a few meetings, she began to realize how much she could relate to what was being discussed and to the reflection prompts that were shared. What once felt distant quickly became personal and meaningful."
     },
     {
-        src: "videos/Whitehead.mp4",
-        title: "A Story of new found growth and healing",
-        description: "This testimony highlights healing, accountability, and restored purpose after attending and particapating in wea1."
+        src: "https://www.youtube.com/embed/ZSxekbP_2lA",
+        title: "Shaquille's Impact Story",
+        description: "Shaquille shares that she initially attended the program simply because it offered a time reduction, without expecting much beyond that practical benefit. However, what she found was far more meaningful than she anticipated. The program became a safe space where she could focus on her mental health, begin healing, and actively work toward recovery."
     }
 ];
 
 let currentIndex = 0;
-let autoSlideInterval;
 const videoPlayer = document.getElementById("carouselVideo");
 
 function updateVideo() {
     videoPlayer.src = videos[currentIndex].src;
-    videoPlayer.load();
-
-    document.getElementById("videoTitle").textContent =
-        videos[currentIndex].title;
-
-    document.getElementById("videoDescription").textContent =
-        videos[currentIndex].description;
-}
-
-function setVideo(index) {
-    currentIndex = index;
-    updateVideo();
-    resetAutoSlide();
+    document.getElementById("videoTitle").textContent = videos[currentIndex].title;
+    document.getElementById("videoDescription").textContent = videos[currentIndex].description;
 }
 
 function nextVideo() {
@@ -70,36 +62,9 @@ function nextVideo() {
     updateVideo();
 }
 
-function nextVideoManual() {
-    nextVideo();
-    resetAutoSlide();
-}
-
 function prevVideo() {
     currentIndex = (currentIndex - 1 + videos.length) % videos.length;
     updateVideo();
-    resetAutoSlide();
 }
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextVideo, 8000);
-}
-
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
-
-function resetAutoSlide() {
-    stopAutoSlide();
-    startAutoSlide();
-}
-
-/* Pause carousel while video is playing */
-videoPlayer.addEventListener("play", stopAutoSlide);
-videoPlayer.addEventListener("pause", startAutoSlide);
-videoPlayer.addEventListener("ended", startAutoSlide);
-
-window.onload = function () {
-    updateVideo();      // THIS was missing
-    startAutoSlide();
-};
+window.addEventListener("load", updateVideo);

@@ -43,27 +43,28 @@ color:var(--text);
 line-height:1.6;
 background:var(--bg);
 text-align:center;
-padding-top:100px; /* prevents header overlap */
-}
+    padding-top: 100px; /* keeps content below header */
+}/* prevents header overlap */
+
 
 /* ============================= */
 /* HEADER */
 /* ============================= */
 
-header{
-width:100%;
-max-width:1800px;
-padding:10px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:fixed;
-top:0;
-left:50%;
-transform:translateX(-50%);
-background:var(--border);
-z-index:1000;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
+header {
+    width: 100%;       /* full width */
+    max-width: none;   /* remove max-width limit */
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;           /* start from left edge */
+    transform: none;   /* remove centering transform */
+    background: var(--border);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 /* logo */
@@ -157,9 +158,8 @@ background:var(--primary);
 margin:30px auto;
 }
 
-/* ============================= */
 /* IMPACT QUOTE */
-/* ============================= */
+
 
 .quote{
 font-size:42px;
@@ -173,9 +173,9 @@ padding-left:30px;
 text-align:left;
 }
 
-/* ============================= */
+
 /* IMPACT GRID */
-/* ============================= */
+
 
 .impact-grid{
 display:grid;
@@ -218,9 +218,9 @@ background:#c39a4f;
 transform:translateY(-2px);
 }
 
-/* ============================= */
+
 /* IMPACT VIDEO SECTION */
-/* ============================= */
+
 
 .impact-videos{
 margin-top:40px;
@@ -235,59 +235,100 @@ margin:auto;
 padding:20px;
 }
 
-/* ============================= */
+
 /* VIDEO CAROUSEL */
-/* ============================= */
 
-.carousel-wrapper{
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
+
+.custom-video-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
 }
 
-.carousel-container{
-width:100%;
-max-width:750px;
+#carouselVideo {
+  width: 100%;
+  border-radius: 12px;
 }
 
-.carousel-container video{
-width:100%;
-max-height:500px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
+.video-info {
+  margin-top: 20px;
 }
 
-.arrow{
-background:rgba(0,0,0,.6);
-color:white;
-border:none;
-font-size:28px;
-padding:10px 15px;
-cursor:pointer;
-border-radius:50%;
-position:absolute;
-z-index:2;
+.video-info h3 {
+  font-size: 28px;
+  color: var(--accent);
+  margin-bottom: 10px;
 }
 
-.left{ left:5%; }
-.right{ right:5%; }
+.video-info p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text);
+}
 
+/* Carousel buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    font-size: 1.5rem;
+    padding: 8px 12px;
+  }
+
+  .video-info h3 {
+    font-size: 22px;
+  }
+
+  .video-info p {
+    font-size: 16px;
+  }
+}
 /* ============================= */
 /* FOOTER */
 /* ============================= */
 
-.footer{
-background:var(--primary);
-color:white;
-padding:60px 20px 20px;
+.footer {
+    width: 100%;
+    max-width: none;
+    padding: 60px 20px 20px;
+    background: var(--primary);
+    color: white;
 }
 
-.footer-container{
-max-width:1850px;
-display:grid;
-grid-template-columns:2fr 1fr 1fr;
-gap:40px;
+.footer-container {
+    max-width: 1200px;  /* optional: content width limit inside footer */
+    margin: 0 auto;     /* center footer content */
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
 }
 
 .footer-column h3,

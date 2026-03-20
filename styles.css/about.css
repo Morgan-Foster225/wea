@@ -385,3 +385,118 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* ============================= */
+/* MOBILE STYLES */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* ============================= */
+  /* HEADER */
+  header {
+    padding: 10px 15px;
+    flex-direction: column;      /* stack logo and nav */
+    align-items: center;
+  }
+
+  header img {
+    height: 70px;               /* smaller logo */
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-direction: column;      /* vertical menu */
+    gap: 12px;                   /* smaller spacing */
+    align-items: center;
+  }
+
+  nav a {
+    font-size: 16px;             /* smaller font */
+    padding: 8px 0;
+  }
+
+  /* ============================= */
+  /* HERO SECTION */
+  .hero {
+    margin-top: 6rem;           /* adjust for smaller header */
+    padding: 1.5rem;
+  }
+
+  .hero-card {
+    padding: 30px 20px;         /* less padding inside card */
+  }
+
+  .hero .lead {
+    font-size: 18px;
+    max-width: 90%;
+    margin: 15px auto;
+  }
+
+  /* ============================= */
+  /* CARDS / GRIDS */
+  .card-grid {
+    grid-template-columns: 1fr; /* stack cards vertically */
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  /* ============================= */
+  /* TWO-COLUMN SECTION */
+  .two-column {
+    grid-template-columns: 1fr;  /* stack columns vertically */
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .two-column ul {
+    font-size: 16px;            /* smaller text */
+  }
+
+  /* ============================= */
+  /* IMPACT STATS & LIST */
+  .impact {
+    padding: 60px 20px;
+  }
+
+  .stat {
+    font-size: 40px;            /* smaller stat numbers */
+  }
+
+  .impact li {
+    font-size: 20px;
+  }
+
+  /* ============================= */
+  /* HERO QUOTES */
+  .quote {
+    font-size: 28px;
+    padding-left: 15px;
+    border-left-width: 4px;
+    max-width: 95%;
+    margin: 40px auto;
+  }
+
+  /* ============================= */
+  /* FOOTER */
+  .footer-container {
+    grid-template-columns: 1fr;  /* stack columns vertically */
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+  }
+
+  /* ============================= */
+  /* CTA BUTTONS */
+  .btn-main {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
