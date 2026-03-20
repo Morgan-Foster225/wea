@@ -72,6 +72,30 @@ width:20px;
 height: auto;
 }
 
+
+body {
+  margin: 0;
+  padding-top: 90px; /* adjust to your header height */
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
 /* Global image styling */
 img{
     display:block;
