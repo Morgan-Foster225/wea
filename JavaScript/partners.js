@@ -21,36 +21,44 @@ window.addEventListener("scroll", () => {
 });
 
 
-/* =========================
-   EMAILJS SETUP
-========================= */
-
-// 🔴 REPLACE THESE WITH YOUR REAL KEYS
-const publicKey = "YOUR_PUBLIC_KEY";
-const serviceID = "YOUR_SERVICE_ID";
-const templateID = "YOUR_TEMPLATE_ID";
-
-// Initialize EmailJS
-emailjs.init(publicKey);
-
+// =========================
+  // EMAILJS SETUP
 const form = document.getElementById("partnerForm");
 const message = document.getElementById("formMessage");
 
-form.addEventListener("submit", function(event) {
+// Your Formspree endpoint
+const endpoint = "https://formspree.io/f/mreoblpp";
+
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
     message.style.color = "black";
     message.textContent = "Sending...";
 
-    emailjs.sendForm(serviceID, templateID, this)
-        .then(function() {
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(endpoint, {
+            method: "POST",
+            body: formData,
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
             message.style.color = "green";
             message.textContent = "✅ Partnership request sent successfully!";
             form.reset();
-        }, function(error) {
+        } else {
             message.style.color = "red";
-            message.textContent = "❌ Something went wrong. Please try again.";
-            console.error("EmailJS Error:", error);
-        });
+            message.textContent = result?.errors?.[0]?.message || "❌ Something went wrong.";
+        }
+    } catch (error) {
+        message.style.color = "red";
+        message.textContent = "❌ Network error. Please check your connection.";
+        console.error("Formspree Error:", error);
+    }
 });
-
