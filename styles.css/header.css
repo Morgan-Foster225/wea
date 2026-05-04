@@ -1,0 +1,165 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Root color variables (site theme) */
+:root {
+    --primary: #D4B06A;          /* Main gold color */
+    --accent: #C7A892;           /* Secondary accent color */
+    --bg: #FDF9F2;               /* Page background color */
+    --surface: #FFFFFF;          /* Card/surface background */
+    --text: #4A4038;             /* Main text color */
+    --muted: #8A7A6C;            /* Muted/secondary text */
+    --border: #EFE4D3;           /* Border/light divider color */
+    --hero-gradient-1: #d8c9b3;  /* Hero gradient start */
+    --hero-gradient-2: #D4B06A;  /* Hero gradient end */
+}
+
+/* Header (navigation bar) */
+ header {
+    width: 100%;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    background: var(--border);
+    z-index: 1000; /* Keep header above other elements */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: top 0.3s ease; /* Smooth hide/show animation */
+}
+
+/* Header hide animation (first rule) */
+.header.hide {
+    top: -0px;
+}
+
+/* Class added by JavaScript to hide header */
+header.hide {
+    top: -120px;
+}
+
+/* Header base positioning */
+.header{
+    position:fixed;
+    top:0;
+    width:100%
+}
+
+/* Hide header (duplicate rule for JS control) */
+.header.hide{
+    top:-120px;
+}
+
+/* Small logo size */
+.logoHeader{
+width:20px;
+height: auto;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+
+/* Header hide animation (first rule) */
+.header.hide {
+    top: -0px;
+}
+
+/* Class added by JavaScript to hide header */
+header.hide {
+    top: -120px;
+}
+
+/* Header base positioning */
+.header{
+    position:fixed;
+    top:0;
+    width:100%
+}
+
+/* Hide header (duplicate rule for JS control) */
+.header.hide{
+    top:-120px;
+}
+
+/* Small logo size */
+.logoHeader{
+width:20px;
+height: auto;
+}
+
+
+body {
+  margin: 0;
+  padding-top: 90px; /* adjust to your header height */
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+}
+/* Global image styling */
+img{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+
+/* Header logo image */
+header img{
+    max-width: 230px;
+    height: auto;
+}
+
+/* Logo text styling */
+.logo {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 15px;
+    color: var(--primary);
+}
+
+/* Navigation links */
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding:10px;
+    font-size:larger;
+}
+
+/* Navigation hover effect */
+nav a:hover {
+    color: var(--accent);
+}

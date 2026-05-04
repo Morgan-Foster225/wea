@@ -34,54 +34,6 @@ h1, h2, h3, nav a, .logo {
     font-family: 'Raleway', sans-serif;
 }
 
-/* ================= HEADER ================= */
-
-header {
-    width: 100%;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    background: var(--border);
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: top 0.3s ease;
-}
-
-header.hide {
-    top: -120px;
-}
-
-.logoHeader {
-    width: 20px;
-    height: auto;
-}
-
-header img {
-    max-width: 230px;
-    height: auto;
-}
-
-.logo {
-    font-weight: 600;
-    font-size: 20px;
-    margin: 0 15px;
-    color: var(--primary);
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    padding: 10px;
-    font-size: larger;
-}
-
-nav a:hover {
-    color: var(--accent);
-}
 
 /* ================= HERO / MAIN ================= */
 
@@ -213,56 +165,4 @@ section h3 {
     font-weight: 600;
     color: var(--primary);
     margin-top: 20px;
-}
-
-/* ================= FOOTER ================= */
-
-/* Footer styling */
-.footer{
-  background:var(--primary);
-  color:white;
-  padding:60px 20px 20px;
-}
- 
-.footer-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap:40px;
-}
-
-.footer-column h3{
-  color:var(--bg);
-  margin-bottom:10px;
-}
-
-.footer-column h4{
-  color:var(--bg);
-  margin-bottom:15px;
-}
-
-.footer-column p{
-  line-height:1.6;
-  opacity:.9;
-}
-
-.footer-column a{
-  display:block;
-  color:white;
-  text-decoration:none;
-  margin-bottom:10px;
-}
-
-.footer-column a:hover{
-  color:var(--muted);
-}
-
-.footer-bottom{
-  text-align:center;
-  margin-top:40px;
-  padding-top:20px;
-  border-top:1px solid #444;
-  font-size:14px;
-  opacity:.7;
 }
