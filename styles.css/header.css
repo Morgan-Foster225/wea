@@ -17,7 +17,7 @@
 /* Header (navigation bar) */
  header {
     width: 100%;
-    padding: 0px 40px;
+    padding: 0px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,7 +83,7 @@ height: auto;
 
 /* Class added by JavaScript to hide header */
 header.hide {
-    top: -120px;
+    top: -220px;
 }
 
 /* Header base positioning */
@@ -95,7 +95,7 @@ header.hide {
 
 /* Hide header (duplicate rule for JS control) */
 .header.hide{
-    top:-120px;
+    top:-220px;
 }
 
 /* Small logo size */
