@@ -1,24 +1,3 @@
-let lastScroll = 0;
-const header = document.querySelector(".header");
-const delta = 1;            // Minimum scroll to trigger hide/show
-const headerHeight = header.offsetHeight;
-
-window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-
-    // Only run if scroll is more than delta
-    if (Math.abs(currentScroll - lastScroll) <= delta) return;
-
-    if (currentScroll > lastScroll && currentScroll > headerHeight) {
-        // Scrolling down
-        header.classList.add("hide");
-    } else if (currentScroll + window.innerHeight < document.body.scrollHeight) {
-        // Scrolling up
-        header.classList.remove("hide");
-    }
-
-    lastScroll = currentScroll;
-});
 let currentSlide = 0;
 const slides = document.querySelectorAll(".slide");
 

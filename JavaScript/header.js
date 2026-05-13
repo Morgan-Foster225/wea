@@ -1,3 +1,4 @@
+
 let lastScroll = 0;
 const header = document.querySelector(".header");
 const delta = 10;            // Minimum scroll to trigger hide/show

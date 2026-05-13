@@ -1,25 +1,3 @@
-let lastScroll = 0;
-const header = document.querySelector(".header");
-const delta = 10;
-
-if (header) {
-    const headerHeight = header.offsetHeight;
-
-    window.addEventListener("scroll", () => {
-        const currentScroll = window.pageYOffset;
-
-        if (Math.abs(currentScroll - lastScroll) <= delta) return;
-
-        if (currentScroll > lastScroll && currentScroll > headerHeight) {
-            header.classList.add("hide");
-        } else {
-            header.classList.remove("hide");
-        }
-
-        lastScroll = currentScroll;
-    });
-}
-
 
 /* ==========================
    YOUTUBE VIDEO SYSTEM
