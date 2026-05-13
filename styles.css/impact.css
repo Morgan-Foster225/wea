@@ -87,9 +87,9 @@ margin:0 auto;
 padding:80px 20px;
 }
 
-.section-alt{
-background:var(--surface-soft);
-}
+/* .section-alt{
+/* background:var(--surface-soft); */
+ */
 
 .divider{
 width:80px;
@@ -163,7 +163,6 @@ transform:translateY(-2px);
 
 
 .impact-videos{
-margin-top:40px;
 text-align:center;
 padding:60px 20px;
 background:var(--border);
@@ -250,7 +249,7 @@ padding:20px;
   .video-info p {
     font-size: 16px;
   }
-  
+
   .impact-videos{
 margin-top:40px;
 text-align:center;
