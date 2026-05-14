@@ -28,7 +28,7 @@ form.addEventListener("submit", async function(event) {
 
         if (response.ok) {
             message.style.color = "green";
-            message.textContent = "✅ Partnership request sent successfully!";
+            message.textContent = "✅ Request sent successfully!";
             form.reset();
         } else {
             message.style.color = "red";
