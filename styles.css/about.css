@@ -306,11 +306,11 @@ section.impact {
     padding: 25px;
   }
 .slide-card {
-width: 400px;      
-max-width: 90%;}
+ width:100%;
+  display: block;}
 
 .carousel{
-  padding-top:10rem;
+  padding-top:15rem;
 }
 
   .two-column {
@@ -324,5 +324,11 @@ max-width: 90%;}
 
   .impact li {
     font-size: 20px;
+  }
+  h2{
+    font-size:20px
+  }
+  p{
+        font-size:13px
   }
 }
