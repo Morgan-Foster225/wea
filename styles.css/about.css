@@ -267,7 +267,7 @@ section.impact {
 
 .btn-main {
   background: var(--surface);
-  color: var(--primary);
+  color: var(--muted);
   font-weight: 600;
   font-size: x-large;
   text-decoration: none;
@@ -289,7 +289,7 @@ section.impact {
   }
 
   .hero-card {
-    padding: 30px 20px;
+    padding: 10px 10px;
   }
 
   .hero .lead {
@@ -328,7 +328,7 @@ section.impact {
   h2{
     font-size:20px
   }
-  p{
-        font-size:13px
-  }
+.silde-card-para{
+font-size:small;
+}
 }
