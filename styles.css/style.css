@@ -38,7 +38,8 @@ body {
     align-items: center;
     text-align: center;
     color: #fff;
-    /* padding: 0 0px; */
+     padding-top:20rem; 
+     justify-content: flex;
 }
 
 /* Hero content container */
@@ -287,4 +288,20 @@ img{
 /* Submit button hover */
 .form-btn:hover {
     background: var(--accent);
+}
+
+@media (max-width: 768px){
+ /* Hero heading */
+.hero h1 {
+    font-size:35px;
+    font-weight: 600;
+}
+}
+.hero-content{
+    padding:10px;
+}
+.hero {
+
+     padding-top:150px; 
+
 }
