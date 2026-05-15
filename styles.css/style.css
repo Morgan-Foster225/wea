@@ -31,7 +31,6 @@ body {
 
 /* Hero section styling */
 .hero {
-    height: 100vh;
     background: linear-gradient(135deg, var(--hero-gradient-1), var(--hero-gradient-2));
     display: flex;
     justify-content: center;

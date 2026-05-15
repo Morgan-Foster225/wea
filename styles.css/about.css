@@ -281,7 +281,7 @@ section.impact {
 /* RESPONSIVE */
 /* ============================= */
 
-@media (max-width: 768px) {
+@media (min-width: 800px) {
 
   .hero {
     padding: 1.5rem;
@@ -289,7 +289,7 @@ section.impact {
   }
 
   .hero-card {
-    padding: 10px 10px;
+    padding: 10px;
   }
 
   .hero .lead {
@@ -308,10 +308,6 @@ section.impact {
 .slide-card {
  width:100%;
   display: block;}
-
-.carousel{
-  padding-top:15rem;
-}
 
   .two-column {
     grid-template-columns: 1fr;
