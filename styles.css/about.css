@@ -256,6 +256,8 @@ section.impact {
 
 @media (min-width: 800px) {
 
+  
+
   .hero {
     padding: 1.5rem;
     margin-top: 5rem;
@@ -278,6 +280,7 @@ section.impact {
   .card {
     padding: 25px;
   }
+
 .slide-card {
  width:100%;
   display: block;}
