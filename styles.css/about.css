@@ -37,7 +37,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   background-color: var(--bg);
-  padding-top: 80px; /* space for fixed header */
+  padding-top: 80px; 
 }
 
 /* ============================= */
@@ -79,33 +79,6 @@ section {
   padding: 20px 10%;
   max-width: 1200px;
   margin: auto;
-}
-
-/* ============================= */
-/* HEADER */
-/* ============================= */
-
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--border);
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: top 0.3s ease;
-}
-
-.header.hide {
-  top: -120px;
-}
-
-header img {
-  max-width: 230px;
-  height: auto;
 }
 
 /* ============================= */
