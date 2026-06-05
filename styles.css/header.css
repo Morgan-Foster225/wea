@@ -32,6 +32,7 @@
     z-index: 1000; /* Keep header above other elements */
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     transition: top 0.3s ease; /* Smooth hide/show animation */
+    font-family: tinos;
 }
 
 /* Header hide animation (first rule) */
