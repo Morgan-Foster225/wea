@@ -202,7 +202,8 @@ padding:20px;
 
 /* VIDEO CAROUSEL */
 .video-wrapper{
-    position:relative;
+  position: relative; /* buttons anchor to this */
+  width: 100%;
 }
 
 .carousel-btn{
