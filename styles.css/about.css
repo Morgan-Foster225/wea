@@ -121,39 +121,6 @@ nav a:hover {
   max-width: 700px;
   margin: 20px auto;
 }
-
-/* ============================= */
-/* CAROUSEL */
-/* ============================= */
-.carousel {
-  position: relative;
-  width: 100%;
-}
-
-.slide {
-  display: none;
-  position: relative;
-}
-
-.slide.active {
-  display: block; 
-}
-
-.slide-image img {
-  width: 100%;
-  display: block;
-}
-
-.slide-card {
-  position: absolute;
-  bottom: 40px;
-  left: 10%;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 8px;
-  width: 80%;
-  max-width: 500px;
-} 
 /* ============================= */
 /* CARD GRID */
 /* ============================= */
@@ -254,11 +221,8 @@ section.impact {
 /* RESPONSIVE */
 /* ============================= */
 
-@media (min-width: 800px) {
-
-  
-
-  .hero {
+@media (min-width: 500px) {
+   .hero {
     padding: 1.5rem;
     margin-top: 5rem;
   }
@@ -280,11 +244,7 @@ section.impact {
   .card {
     padding: 25px;
   }
-
-.slide-card {
- width:100%;
-  display: block;}
-
+  
   .two-column {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -300,6 +260,101 @@ section.impact {
   h2{
     font-size:20px
   }
-.silde-card-para{
-font-size:small;
-}}
+};
+
+
+
+
+/* === CAROUSEL === */
+.carousel {
+  width: 100%;
+  background: #faf6f0; /* warm cream background matching the screenshot */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.slides {
+  width: 100%;
+}
+
+/* === SLIDE: image is the full container, card overlays on top === */
+.slide {
+  display: none;
+  position: relative; /* card will be positioned relative to this */
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* === IMAGE fills the slide === */
+.slide-image {
+  width: 100%;
+  height: 480px; /* desktop height */
+}
+
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === CARD overlays bottom-left of the image === */
+.slide-card {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2rem;
+  width: 55%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  box-sizing: border-box;
+}
+
+.slide-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #b8973a; /* gold color from the screenshot */
+  margin: 0 0 1rem 0;
+}
+
+.slide-card p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #3a3530;
+  margin: 0;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+ .carousel {
+  padding: 9rem 1rem 1rem 1rem; /* top right bottom left */
+}
+
+  .slide-image {
+    height: 420px; /* slightly shorter on mobile */
+  }
+
+  .slide-card {
+    width: calc(100% - 2rem); /* nearly full width */
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .slide-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .slide-card p {
+    font-size: 0.95rem;
+  }
+}
