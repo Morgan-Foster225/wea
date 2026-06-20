@@ -29,3 +29,470 @@ body {
     background-color: var(--bg);
 }
 
+/* ============================================
+   DONATE PAGE — donate.css
+   Uses WE1A root variables
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Georgia', serif;
+  line-height: 1.7;
+}
+
+/* ── HERO BANNER ───────────────────────────── */
+.donate-hero {
+  background: linear-gradient(135deg, var(--hero-gradient-1) 0%, var(--hero-gradient-2) 100%);
+  text-align: center;
+  padding: 10rem 2rem 4rem;
+}
+
+.donate-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.donate-hero p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── IMPACT COUNTER STRIP ──────────────────── */
+.donate-impact {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+}
+
+.impact-stat {
+  text-align: center;
+}
+
+.impact-stat .count {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.impact-stat span.label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.4rem;
+  display: block;
+}
+
+/* ── MAIN DONATE SECTION ───────────────────── */
+.donate-section {
+  max-width: 760px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.donate-section h2 {
+  font-size: 1.75rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.donate-section .sub {
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* ── AMOUNT TILES ──────────────────────────── */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.amount-tile {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.amount-tile:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.amount-tile.selected {
+  border-color: var(--primary);
+  background: var(--hero-gradient-1);
+  color: var(--text);
+}
+
+.amount-tile .impact-note {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+/* ── CUSTOM AMOUNT INPUT ───────────────────── */
+.custom-amount-wrap {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.custom-amount-wrap .dollar {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.custom-amount-wrap input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.custom-amount-wrap input:focus {
+  border-color: var(--primary);
+}
+
+.custom-amount-wrap input::placeholder {
+  color: var(--border);
+}
+
+/* ── FREQUENCY TOGGLE ──────────────────────── */
+.frequency-toggle {
+  display: flex;
+  background: var(--hero-gradient-1);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 2rem;
+  width: fit-content;
+}
+
+.freq-btn {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--muted);
+  transition: background 0.2s, color 0.2s;
+}
+
+.freq-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* ── DONOR FORM ────────────────────────────── */
+.donor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  font-family: 'Arial', sans-serif;
+}
+
+.form-field input,
+.form-field select {
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--primary);
+}
+
+.form-field input.error {
+  border-color: #c0392b;
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  display: none;
+  font-family: 'Arial', sans-serif;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+/* ── SUBMIT BUTTON ─────────────────────────── */
+.donate-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 0.5rem;
+}
+
+.donate-btn:hover {
+  background: var(--hero-gradient-2);
+  transform: translateY(-2px);
+}
+
+.donate-btn:active {
+  transform: translateY(0);
+}
+
+/* ── SUCCESS MESSAGE ───────────────────────── */
+.donate-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  margin-top: 2rem;
+}
+
+.donate-success.visible {
+  display: block;
+}
+
+.donate-success .check {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.donate-success h3 {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.donate-success p {
+  color: var(--muted);
+}
+
+/* ── COMING SOON FALLBACK ──────────────────── */
+section > p {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.5rem;
+  color: var(--muted);
+}
+
+/* ── MOBILE ────────────────────────────────── */
+@media (max-width: 600px) {
+  .donate-hero {
+    padding: 3.5rem 1.25rem 2.5rem;
+  }
+
+  .amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .donate-impact {
+    gap: 2rem;
+  }
+}
+
+
+
+
+    /* ── Carousel wrapper ── */
+    .carousel-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* ── Sliding track ── */
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Individual slide ── */
+    .slide {
+      position: relative;
+      min-width: 100%;
+      height: 520px;
+      flex-shrink: 0;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── Dark gradient overlay so text is always readable ── */
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.68) 0%,
+        rgba(0, 0, 0, 0.28) 50%,
+        rgba(0, 0, 0, 0.08) 100%
+      );
+    }
+
+    /* ── Text block pinned to bottom-left ── */
+    .slide-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 2.5rem 3rem;
+      color: #ffffff;
+    }
+
+    .slide-text h1 {
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+    }
+
+    .slide-text p {
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.6;
+      opacity: 0.92;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      max-width: 560px;
+    }
+
+    /* ── Prev / Next arrow buttons ── */
+    .btn-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .btn-nav:hover { background: rgba(255, 255, 255, 0.32); }
+    .btn-nav:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+    .btn-prev { left: 16px; }
+    .btn-next { right: 16px; }
+
+    /* ── Dot indicators ── */
+    .dots {
+      position: absolute;
+      bottom: 18px;
+      right: 24px;
+      display: flex;
+      gap: 7px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .dot.active {
+      background: #ffffff;
+      transform: scale(1.35);
+    }
+
+    .dot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }

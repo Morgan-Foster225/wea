@@ -26,12 +26,126 @@
 </header>
 
 
+  <div class="carousel-wrap" id="carousel">
 
+    <div class="carousel-track" id="carouselTrack">
 
-<section>
-    <p>Coming Soon</p>
-</section>
+      <!-- Slide 1 -->
+      <div class="slide">
+        <img
+          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80&auto=format&fit=crop"
+          alt="Women gathered in community"
+        />
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h1>Make a Difference Today</h1>
+          <p>Your gift helps women rebuild their lives through housing, healing, and community.</p>
+        </div>
+      </div>
 
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img
+          src="images/pexels-alex-green-5699455.jpg"
+          alt="Hope and healing"
+        />
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h1>Healing Through Community</h1>
+          <p>Together we create safe spaces where women find strength, support, and new beginnings.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img
+          src="images/pexels-ivan-s-9630216.jpg"
+          alt="Building futures"
+        />
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h1>Building Brighter Futures</h1>
+          <p>Every dollar opens a door — to stable housing, opportunity, and lasting change.</p>
+        </div>
+      </div>
+
+    </div><!-- /carousel-track -->
+
+    <!-- Nav arrows -->
+    <button class="btn-nav btn-prev" id="prevBtn" aria-label="Previous slide">&#8592;</button>
+    <button class="btn-nav btn-next" id="nextBtn" aria-label="Next slide">&#8594;</button>
+
+    <!-- Dots built by JS -->
+    <div class="dots" id="dotsContainer" role="tablist" aria-label="Carousel slides"></div>
+
+  </div><!-- /carousel-wrap -->
+
+<div class="donate-impact">
+  <div class="impact-stat">
+    <span class="count" data-target="200" data-suffix="+">0+</span>
+    <span class="label">Women Served</span>
+  </div>
+  <div class="impact-stat">
+    <span class="count" data-target="50" data-suffix="%">0%</span>
+    <span class="label">Program Completion</span>
+  </div>
+  <div class="impact-stat">
+    <span class="count" data-target="12">0</span>
+    <span class="label">Years of Impact</span>
+  </div>
+</div>
+
+<div class="donate-section">
+  <h2>Choose an Amount</h2>
+  <p class="sub">Every dollar goes directly to programming and residential support.</p>
+
+  <div class="frequency-toggle">
+    <button class="freq-btn active">One-time</button>
+    <button class="freq-btn">Monthly</button>
+  </div>
+
+  <div class="amount-grid">
+    <button class="amount-tile">$25 <span class="impact-note">Supplies for one woman</span></button>
+    <button class="amount-tile selected">$50 <span class="impact-note">One week of meals</span></button>
+    <button class="amount-tile">$100 <span class="impact-note">One counseling session</span></button>
+    <button class="amount-tile">$250 <span class="impact-note">One month of support</span></button>
+    <button class="amount-tile">$500 <span class="impact-note">Full program intake</span></button>
+    <button class="amount-tile">$1,000 <span class="impact-note">Transform a life</span></button>
+  </div>
+
+  <div class="custom-amount-wrap">
+    <span class="dollar">$</span>
+    <input type="number" id="customAmount" placeholder="Enter custom amount" min="1">
+  </div>
+  <p class="field-error" id="amountError">Please select or enter a donation amount.</p>
+
+  <form id="donateForm" class="donor-form" novalidate>
+    <div class="form-row">
+      <div class="form-field">
+        <label>First Name</label>
+        <input type="text" required placeholder="Jane">
+        <span class="field-error">First name is required.</span>
+      </div>
+      <div class="form-field">
+        <label>Last Name</label>
+        <input type="text" required placeholder="Doe">
+        <span class="field-error">Last name is required.</span>
+      </div>
+    </div>
+    <div class="form-field">
+      <label>Email</label>
+      <input type="email" required placeholder="jane@example.com">
+      <span class="field-error">Email is required.</span>
+    </div>
+    <button type="submit" class="donate-btn">Donate Now</button>
+  </form>
+
+  <div id="donateSuccess" class="donate-success">
+    <div class="check">🙏</div>
+    <h3>Thank you for your generosity.</h3>
+    <p>Your gift is making a real difference in the lives of women in our community.</p>
+  </div>
+</div>
 
 
 
@@ -70,6 +184,6 @@
   </div>
 
 </footer>
-<script src="JavaScript/header.js"></script>
+<script src="JavaScript/donate.js"></script>
 </body>
 </html>
