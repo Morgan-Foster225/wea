@@ -3,170 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Impact — WE1A</title>
   <link rel="stylesheet" href="styles.css/impact.css">
   <link rel="stylesheet" href="styles.css/header.css">
   <link rel="stylesheet" href="styles.css/footer.css">
 </head>
 <body>
-  
-<header class="header">
-<div class="logoimg"><img src="images/we1a_logo_no_bg.png"></div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="programs.html">Programs</a>
-<a href="impact.html">Impact</a>
-<a href="getInvolved.html">Get Involved</a>
-<a href="donate.html">Donate</a>
-</nav>
+<!-- HEADER -->
+<header class="header">
+  <div class="logoimg"><img src="images/we1a_logo_no_bg.png" alt="WE1A logo"></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="programs.html">Programs</a>
+    <a href="impact.html">Impact</a>
+    <a href="getInvolved.html">Get Involved</a>
+    <a href="donate.html">Donate</a>
+  </nav>
 </header>
 
-<!-- VIDEO IMPACT HERO -->
-
+<!-- VIDEO HERO -->
 <section class="impact-videos">
 
-  <h1 class="section-title">Impact Stories</h1>
-
+  <p class="section-eyebrow">Women Empowering One Another</p>
+  <h1 class="section-title">Impact <em>Stories</em></h1>
   <p class="section-subtitle">
     Hear directly from women whose lives have been transformed through the support,
     community, and programs provided by Women Empowering One Another.
   </p>
 
   <div class="custom-video-carousel">
-
-    <!-- Video wrapper: buttons center against THIS, not the whole carousel -->
     <div class="video-wrapper">
-      <iframe 
-          id="carouselVideo"
-          width="100%"
-          height="500"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
+      <iframe
+        id="carouselVideo"
+        width="100%"
+        height="500"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
       </iframe>
-
-      <button class="carousel-btn prev" onclick="prevVideo()">‹</button>
-      <button class="carousel-btn next" onclick="nextVideo()">›</button>
+      <button class="carousel-btn prev" onclick="prevVideo()">&#8249;</button>
+      <button class="carousel-btn next" onclick="nextVideo()">&#8250;</button>
     </div>
-
-    <!-- Video info sits below, outside the wrapper -->
     <div class="video-info">
       <h3 id="videoTitle"></h3>
       <p id="videoDescription"></p>
     </div>
-
   </div>
 
 </section>
 
 <!-- IMPACT MESSAGE -->
-
 <section class="hero section">
 
-<div class="hero-card">
+  <div class="hero-card">
+    <span class="section-label">Since 2014</span>
+    <h2>Our impact</h2>
+    <div class="divider"></div>
+    <p class="lead">
+      Women Empowering One Another has stood in the gap for women rebuilding their
+      lives after incarceration, addiction, trauma, and systemic barriers.
+    </p>
+  </div>
 
-<h2>Our Impact Since 2014</h2>
-
-<div class="divider"></div>
-
-<p class="lead">
-Women Empowering One Another has stood in the gap for women rebuilding their lives after incarceration, addiction, trauma, and systemic barriers.
-</p>
-
-</div>
-
-<div class="quote">
-When women are supported by women, transformation happens.
-</div>
+  <blockquote class="quote">
+    When women are supported by women, transformation happens.
+  </blockquote>
 
 </section>
-
 
 <!-- IMPACT AREAS -->
+<section class="section-alt">
 
-<section class="section section-alt">
+  <span class="section-label">What we address</span>
+  <h2>Areas of impact</h2>
+  <div class="divider"></div>
 
-<h2>Areas of Impact</h2>
-
-<div class="divider"></div>
-
-<div class="impact-grid">
-
-<div class="impact-card">
-Trauma recovery programming
-</div>
-
-<div class="impact-card">
-Addiction recovery support
-</div>
-
-<div class="impact-card">
-Reentry preparation
-</div>
-
-<div class="impact-card">
-Personal development workshops
-</div>
-
-<div class="impact-card">
-Therapeutic support groups
-</div>
-
-</div>
+  <div class="impact-grid">
+    <div class="impact-card">Trauma recovery programming</div>
+    <div class="impact-card">Addiction recovery support</div>
+    <div class="impact-card">Reentry preparation</div>
+    <div class="impact-card">Personal development workshops</div>
+    <div class="impact-card">Therapeutic support groups</div>
+  </div>
 
 </section>
-
 
 <!-- CTA -->
-
 <section class="cta section">
 
-<h2>Be Part of the Impact</h2>
+  <span class="section-label">Get involved</span>
+  <h2>Be part of the impact</h2>
+  <div class="divider"></div>
 
-<div class="divider"></div>
+  <p>
+    Your support helps women rebuild their lives, reconnect with their communities,
+    and create brighter futures.
+  </p>
 
-<p>
-Your support helps women rebuild their lives, reconnect with their communities, and create brighter futures.
-</p>
-
-<a class="cta-button" href="donate.html">Support the Mission</a>
+  <a class="cta-button" href="donate.html">Support the mission</a>
 
 </section>
 
-
-
+<!-- FOOTER -->
 <footer class="footer">
-
-<div class="footer-container">
-
-<div class="footer-column">
-<h3>WE1A</h3>
-<p>
-Supporting women impacted by incarceration, addiction, and trauma through recovery programs and community care.
-</p>
-</div>
-
-<div class="footer-column">
-<h4>Quick Links</h4>
-<a href="about.html">About</a>
-<a href="programs.html">Programs</a>
-</div>
-
-<div class="footer-column">
-<h4>Connect</h4>
-<a href="mailto:c.williams@we1a.org">Email Us</a>
-<a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
-   <a href="https://youtube.com/@womenempoweringoneanother?si=aopuIAqbBX-JPqeE" target="_blank">YouTube</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 WE1A | Divinity House Support Services
-</div>
-
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>WE1A</h3>
+      <p class="footer-p">
+        Supporting women impacted by incarceration, addiction, and trauma through
+        recovery programs and community care.
+      </p>
+    </div>
+    <div class="footer-column">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+    </div>
+    <div class="footer-column">
+      <h4>Connect</h4>
+      <a href="mailto:c.williams@we1a.org">Email Us</a>
+      <a href="https://facebook.com/yourpage" target="_blank">Facebook</a>
+      <a href="https://youtube.com/@womenempoweringoneanother?si=aopuIAqbBX-JPqeE" target="_blank">YouTube</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 WE1A | Divinity House Support Services
+  </div>
 </footer>
 
 <script src="JavaScript/impact.js"></script>
