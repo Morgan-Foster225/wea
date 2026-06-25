@@ -1,33 +1,35 @@
-
 /* ==========================
-   GOOGLE FONT
+   GOOGLE FONTS
    ========================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* ==========================
    VARIABLES
    ========================== */
 :root {
-    --primary: #6F8C7A;
-    --primary-dark: #5D7767;
-    --accent: #A9C2B0;
+    --primary:       #1D3D35;
+    --primary-light: #8FAF9A;
+    --accent:        #C2877A;
 
-    --bg: #F8FAF8;
-    --surface: #FFFFFF;
+    --bg:       #F8F7F4;
+    --surface:  #FFFFFF;
 
-    --text: #2F3A33;
-    --muted: #6D766F;
+    --text:     #1A1A1A;
+    --muted:    #6B6B6B;
 
-    --border: #E3EAE4;
+    --border:   rgba(0, 0, 0, 0.1);
 
-    --hero-gradient-1: #F8FAF8;
-    --hero-gradient-2: #E5EFE8;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', sans-serif;
+
+    --radius-md: 10px;
+    --radius-lg: 14px;
 }
 
 /* ==========================
    RESET
    ========================== */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -37,10 +39,10 @@
    BODY
    ========================== */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     background: var(--bg);
     color: var(--text);
-    line-height: 1.8;
+    line-height: 1.75;
 }
 
 img {
@@ -49,188 +51,387 @@ img {
 }
 
 /* ==========================
-   HERO SECTION
+   SHARED LAYOUT
    ========================== */
-.main {
-    text-align: center;
-    padding: 140px 20px 100px;
-    background: linear-gradient(
-        180deg,
-        var(--hero-gradient-1),
-        var(--hero-gradient-2)
-    );
-}
-
-.main h1 {
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: var(--text);
-}
-
-.main p {
-    max-width: 800px;
+.gi-hero,
+.gi-ways-section,
+.gi-accordion-section,
+.gi-connect-section {
+    max-width: 900px;
     margin: 0 auto;
-    font-size: 1.15rem;
-    color: var(--bg);
+    padding: 0 1.5rem;
+}
+
+.gi-divider {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+    border: none;
+}
+.gi-divider::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    background: var(--border);
+}
+
+/* ==========================
+   EYEBROW / LABELS
+   ========================== */
+.gi-eyebrow,
+.gi-section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.gi-eyebrow {
+    color: var(--accent);
+}
+
+/* ==========================
+   HERO
+   ========================== */
+.gi-hero {
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+}
+
+.gi-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+}
+
+.gi-accent {
+    color: var(--accent);
+}
+
+.gi-hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.8;
+}
+
+/* ==========================
+   THREE WAYS CARDS
+   ========================== */
+.gi-ways-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.gi-ways {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.gi-way-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.25rem;
+}
+
+.gi-way-icon {
+    font-size: 20px;
+    color: var(--primary);
+    margin-bottom: 0.85rem;
+}
+
+.gi-way-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.gi-way-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
 }
 
 /* ==========================
    ACCORDION
    ========================== */
-
-.accordion-container {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 20px;
+.gi-accordion-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
-.accordion {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 16px;
+.gi-accordion {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 8px;
     overflow: hidden;
+    transition: border-color 0.2s;
 }
 
-.accordion summary {
+.gi-accordion[open] {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.gi-accordion summary {
     list-style: none;
     cursor: pointer;
-
-    padding: 22px 28px;
-
-    font-size: 1.2rem;
-    font-weight: 600;
-
+    padding: 1.1rem 1.25rem;
+    font-size: 15px;
+    font-weight: 500;
     color: var(--text);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
+    user-select: none;
 }
 
-.accordion summary::-webkit-details-marker {
+.gi-accordion summary::-webkit-details-marker {
     display: none;
 }
 
-.accordion summary::after {
-    content: "+";
-    font-size: 1.5rem;
+.gi-accordion[open] summary {
     color: var(--primary);
-    transition: 0.3s ease;
+    border-bottom: 0.5px solid var(--border);
 }
 
-.accordion[open] summary::after {
-    content: "−";
-}
-
-.accordion-content {
-    padding: 0 28px 28px;
-}
-
-.accordion-content p {
-    margin-bottom: 20px;
+.gi-acc-icon {
+    font-size: 1.3rem;
     color: var(--muted);
+    transition: transform 0.2s ease;
+    display: inline-block;
+    line-height: 1;
 }
 
-.accordion-content h3 {
+.gi-accordion[open] .gi-acc-icon {
+    transform: rotate(45deg);
+}
+
+.gi-acc-body {
+    padding: 1.25rem;
+}
+
+.gi-acc-body p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.gi-acc-body h4 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+}
+
+.gi-acc-body ul {
+    list-style: none;
+}
+
+.gi-acc-body li {
+    font-size: 14px;
+    color: var(--muted);
+    padding: 6px 0;
+    border-bottom: 0.5px solid var(--border);
+}
+
+.gi-acc-body li:last-child {
+    border-bottom: none;
+}
+
+.gi-acc-body a {
     color: var(--primary);
-    margin-bottom: 10px;
-}
-
-.accordion-content ul {
-    margin-left: 20px;
-}
-
-.accordion-content li {
-    margin-bottom: 8px;
-    color: var(--muted);
-}
-
-/* ==========================
-   HIGHLIGHT BOX
-   ========================== */
-.highlight {
-    margin-top: 25px;
-    padding: 18px 22px;
-
-    background: rgba(111, 140, 122, 0.08);
-
-    border-left: 4px solid var(--primary);
-
-    border-radius: 8px;
-
-    color: var(--text);
+    text-decoration: none;
     font-weight: 500;
 }
 
+.gi-acc-body a:hover {
+    text-decoration: underline;
+}
+
 /* ==========================
-   JOIN US SECTION
+   CONNECT SECTION
    ========================== */
-.joinUs {
-    max-width: 1000px;
-    margin: 80px auto;
-    padding: 60px;
+.gi-connect-section {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
 
+.gi-connect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+}
+
+.gi-connect-card {
     background: var(--surface);
-
-    border-radius: 16px;
-    border: 1px solid var(--border);
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
 }
 
-.joinUs h2 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+.gi-connect-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--text);
+    margin-bottom: 0.75rem;
 }
 
-.joinUs p {
+.gi-connect-card p {
+    font-size: 13px;
     color: var(--muted);
-    margin-bottom: 20px;
+    line-height: 1.7;
+    margin-bottom: 1rem;
 }
 
-.joinUs ul {
-    margin: 20px 0 40px 25px;
+.gi-connect-card ul {
+    list-style: none;
 }
 
-.joinUs li {
-    margin-bottom: 10px;
+.gi-connect-card li {
+    font-size: 13px;
     color: var(--muted);
+    padding: 5px 0;
+    padding-left: 1rem;
+    position: relative;
+    border-bottom: 0.5px solid var(--border);
 }
 
+.gi-connect-card li:last-child {
+    border-bottom: none;
+}
+
+.gi-connect-card li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-light);
+    font-size: 12px;
+}
 
 /* ==========================
    RESPONSIVE
    ========================== */
-@media (max-width: 768px) {
-
-    .main {
-        padding: 120px 20px 80px;
+@media (max-width: 640px) {
+    .gi-hero {
+        padding-top: 7rem;
     }
 
-    .main h1 {
-        font-size: 2.5rem;
+    .gi-hero h1 {
+        font-size: 2.2rem;
     }
 
-    .main p {
-        font-size: 1rem;
-    }
-
-    .card-wrapper {
-        padding: 0 20px;
-    }
-
-    .card h2 {
-        font-size: 1.7rem;
-    }
-
-    .joinUs {
-        margin: 50px 20px;
-        padding: 35px 25px;
-    }
-
-    .joinUs h2 {
-        font-size: 1.5rem;
+    .gi-ways,
+    .gi-connect-grid {
+        grid-template-columns: 1fr;
     }
 }
 
+/* ==========================
+   MOBILE
+   ========================== */
+@media (max-width: 768px) {
+
+    /* Layout */
+    .gi-hero,
+    .gi-ways-section,
+    .gi-accordion-section,
+    .gi-connect-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Hero */
+    .gi-hero {
+        padding-top:15rem;
+        padding-bottom: 2rem;
+    }
+
+    .gi-hero h1 {
+        font-size: 2rem;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+    }
+
+    .gi-hero-sub {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* Cards */
+    .gi-ways {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gi-way-card {
+        padding: 1.25rem;
+    }
+
+    .gi-way-card h3 {
+        font-size: 1rem;
+    }
+
+    .gi-way-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Accordion */
+    .gi-accordion summary {
+        padding: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .gi-acc-icon {
+        font-size: 1.2rem;
+        margin-left: 1rem;
+        flex-shrink: 0;
+    }
+
+    .gi-acc-body {
+        padding: 1rem;
+    }
+
+    .gi-acc-body p,
+    .gi-acc-body li {
+        font-size: 0.9rem;
+    }
+
+    /* Connect cards */
+    .gi-connect-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gi-connect-card {
+        padding: 1.25rem;
+    }
+
+    .gi-connect-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .gi-connect-card p,
+    .gi-connect-card li {
+        font-size: 0.9rem;
+    }
+
+    /* Better touch targets */
+    .gi-accordion summary,
+    .gi-connect-card a,
+    .gi-acc-body a {
+        min-height: 44px;
+    }
+}

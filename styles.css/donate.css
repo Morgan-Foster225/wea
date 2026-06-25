@@ -496,3 +496,64 @@ section > p {
     }
 
     .dot:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+ /* ── MOBILE ───────────────────────────────── */
+    @media (max-width: 640px) {
+      /* Carousel */
+      .carousel-wrap{
+        padding-top:9rem
+      }
+      .slide { height: 280px; }
+ 
+      .slide-text {
+        padding: 1.25rem 1.25rem 2rem;
+      }
+ 
+      .btn-nav {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+ 
+      .btn-prev { left: 10px; }
+      .btn-next { right: 10px; }
+ 
+      /* Impact strip */
+      .donate-impact {
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+      }
+ 
+      .impact-stat .count { font-size: 1.85rem; }
+ 
+      /* Donate section */
+      .donate-section {
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+ 
+      .donate-section h2 { font-size: 1.35rem; }
+ 
+      /* Frequency toggle — full width on mobile */
+      .frequency-toggle {
+        width: 100%;
+      }
+ 
+      .freq-btn { flex: 1; padding: 0.6rem 0.5rem; }
+ 
+      /* Amount grid — 2 columns on mobile */
+      .amount-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+      }
+ 
+      /* Form — stack to single column */
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+ 
+    @media (max-width: 380px) {
+      .slide { height: 240px; }
+      .amount-grid { gap: 0.5rem; }
+      .amount-tile { font-size: 0.95rem; padding: 0.9rem 0.4rem; }
+    }

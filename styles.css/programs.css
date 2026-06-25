@@ -1,33 +1,269 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* ==========================
+   GOOGLE FONTS
+   ========================== */
 
-/* Root color variables (site theme) */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Tinos:wght@400;700&display=swap');
+
+/* ==========================
+   VARIABLES
+   ========================== */
+
 :root {
-    --primary: #D4B06A;          /* Main gold color */
-    --accent: #C7A892;           /* Secondary accent color */
-    --bg: #FDF9F2;               /* Page background color */
-    --surface: #FFFFFF;          /* Card/surface background */
-    --text: #4A4038;             /* Main text color */
-    --muted: #8A7A6C;            /* Muted/secondary text */
-    --border: #EFE4D3;           /* Border/light divider color */
-    --hero-gradient-1: #EFE4D3;  /* Hero gradient start */
-    --hero-gradient-2: #D4B06A;  /* Hero gradient end */
+    --primary: #D4B06A;
+    --accent: #C7A892;
+
+    --bg: #FDF9F2;
+    --surface: #FFFFFF;
+
+    --text: #4A4038;
+    --muted: #8A7A6C;
+
+    --border: #EFE4D3;
+
+    --hero-gradient-1: #FDF9F2;
+    --hero-gradient-2: #F5E8D3;
 }
 
-/* Reset default browser spacing + use border-box model */
+/* ==========================
+   RESET
+   ========================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+/* ==========================
+   BODY
+   ========================== */
+
 body {
-    font-family: 'Times New Roman', Times, serif,; /* Main font */
+    font-family: 'Raleway', sans-serif;
+    background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
-    background-color: var(--bg);
+    line-height: 1.7;
 }
 
+/* ==========================
+   SHARED
+   ========================== */
 
+.programs-container {
+    width: min(1100px, 90%);
+    margin: auto;
+}
 
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary);
+    font-size: .8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* ==========================
+   HERO
+   ========================== */
+
+.programs-hero {
+    padding: 140px 0 100px;
+    background:
+        linear-gradient(
+            135deg,
+            #FDF9F2 0%,
+            #F7F0E4 55%,
+            #EFE4D3 100%
+        );
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: 'Tinos', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+}
+
+.hero-content h1 span {
+    color: var(--primary);
+    display: block;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-stats h3 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.hero-stats p {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.hero-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,.05);
+}
+
+.hero-card h2 {
+    font-family: 'Tinos', serif;
+    font-size: 1.8rem;
+}
+
+.hero-card p {
+    color: var(--muted);
+}
+
+.hero-card-line {
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    margin: 1.5rem 0;
+}
+/* ==========================
+   PROGRAM CARDS
+   ========================== */
+
+.programs-grid-section {
+    padding: 80px 0;
+}
+
+.programs-grid-section .programs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.program-card {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    transition: .3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.06);
+}
+
+.program-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.program-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: .75rem;
+}
+
+.program-card p {
+    color: var(--muted);
+}
+
+/* ==========================
+   FEATURED SECTION
+   ========================== */
+
+.featured-program {
+    padding: 90px 0;
+}
+
+.featured-content {
+    background: white;
+    border-radius: 20px;
+    padding: 4rem;
+    border: 1px solid var(--border);
+}
+
+.featured-content h2 {
+    font-family: 'Tinos', serif;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.featured-content p {
+    color: var(--muted);
+}
+
+.highlight-box {
+    margin-top: 2rem;
+    background: rgba(212,176,106,.12);
+    border-left: 4px solid var(--primary);
+    padding: 1.25rem;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* ==========================
+   COMING SOON
+   ========================== */
+
+.coming-soon-section {
+    padding: 80px 0 120px;
+    text-align: center;
+}
+
+.coming-soon-section h2 {
+    font-family: 'Tinos', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.coming-soon-section p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+}
+
+/* ==========================
+   MOBILE
+   ========================== */
+
+@media (max-width: 768px) {
+
+    .programs-hero {
+        padding: 120px 0 70px;
+    }
+
+    .programs-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .featured-content {
+        padding: 2rem;
+    }
+
+    .featured-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .programs-grid-section .programs-container {
+        grid-template-columns: 1fr;
+    }
+}
