@@ -144,7 +144,7 @@
     .hero-body {
         flex-direction: column;
         padding: 36px 24px 28px;
-        padding-top: 5rem;
+        padding-top: 8rem;
         gap: 28px;
     }
     .hero-stats {

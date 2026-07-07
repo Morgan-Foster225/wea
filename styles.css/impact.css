@@ -377,7 +377,9 @@ p.section-eyebrow, .section-eyebrow {
   .section-alt {
     padding: 56px 24px;
   }
-
+.section-eyebrow{
+  margin-top:8rem;
+}
   .impact-videos {
     padding: 48px 24px 40px;
   }
