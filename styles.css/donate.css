@@ -449,6 +449,7 @@ section > p {
     .btn-nav {
       position: absolute;
       top: 50%;
+     margin-top: -18px;
       transform: translateY(-50%);
       background: rgba(255, 255, 255, 0.18);
       border: 1px solid rgba(255, 255, 255, 0.35);
@@ -515,6 +516,10 @@ section > p {
         width: 36px;
         height: 36px;
         font-size: 16px;
+      position: absolute;
+       top: 50%;
+       margin-top: -22px; /* half of the 44px default button height */
+}
       }
  
       .btn-prev { left: 10px; }
