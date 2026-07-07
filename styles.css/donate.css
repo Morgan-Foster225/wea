@@ -503,7 +503,7 @@ section > p {
     @media (max-width: 640px) {
       /* Carousel */
       .carousel-wrap{
-        padding-top:9rem
+        margin-top: 9rem;
       }
       .slide { height: 280px; }
  
