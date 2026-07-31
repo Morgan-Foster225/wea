@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
   --primary: #D4B06A;
   --accent: #C7A892;
@@ -18,60 +20,247 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Raleway", "Segoe UI", Tahoma, sans-serif;
   line-height: 1.8;
 }
 
-/* Main Content */
-body p {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px;
+/* Scroll reveal. JS adds .is-visible when the element scrolls into view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced-motion: skip the animation */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Botanical accents — anchored to the top corners of the page, subtle,
+   behind the content. Absolute (not fixed) so they scroll away with the page.
+   top offset sits them just below the fixed header. */
+.corner {
+  position: absolute;
+  top: 130px;
+  width: 220px;
+  height: auto;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  padding: 5px;
+}
+
+.corner--tl { left: 0; }
+.corner--tr { right: 0; }
+
+@media (max-width: 768px) {
+  .corner { width: 200px; top: 110px; }
+}
+
+/* Page container */
+.exec {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 160px 24px 80px; /* top clears the fixed header */
+  position: relative;
+  z-index: 1; /* keep content above the corner accents */
+}
+
+/* Program photo */
+.exec-photo {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+/* Shared type */
+.exec-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.exec-title {
+  font-family: "Tinos", serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+/* Intro / founder */
+.exec-hero {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* ~1/3 logo, 2/3 content */
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+/* Hero logo (the new icon is thinner, so keep it compact) */
+.exec-hero__logo {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.exec-hero__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Push the right-hand text in from the edge so the top corner
+   accents don't overlap it. */
+.exec-hero__body {
+  padding-top: 32px;
+  padding-right: 48px;
+}
+
+.exec-hero__body p:not(.exec-eyebrow) {
+  font-size: 1.08rem;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+/* Simple section divider */
+.exec-divider {
+  margin: 50px auto;
+  border: none;
+  border-top: 1px solid var(--border-strong, #e0d2bc);
+}
+
+/* Three-column breakdown */
+.exec-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 0;
+}
+
+.exec-col {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-left: 6px solid var(--primary);
-  border-radius: 12px;
-  font-size: 1.1rem;
-  color: var(--text);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  border-radius: 16px;
+  padding: 34px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional Page Title */
-.page-title {
-  text-align: center;
-  margin-top: 140px;
-  margin-bottom: 40px;
-  color: var(--text);
+.exec-col:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
 }
 
-.page-title h1 {
-  font-size: 2.5rem;
+.exec-col__num {
+  display: inline-block;
+  font-family: "Tinos", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
   margin-bottom: 10px;
 }
 
-.page-title p {
+.exec-col__title {
+  font-family: "Tinos", serif;
+  font-size: 1.35rem;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.exec-col p {
+  font-size: 1rem;
   color: var(--muted);
-  font-size: 1.1rem;
 }
 
-/* Highlight Key Text */
-strong {
-  color: var(--primary);
+/* Closing band */
+.exec-closing {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.05);
 }
 
-/* Responsive Design */
+.exec-closing__body p:not(.exec-eyebrow) {
+  font-size: 1.06rem;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.exec-closing__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .exec-columns {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stack the hero so the logo never crowds the text on smaller screens */
+  .exec-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+    .exec-hero__logo {
+    max-width: 150px;
+  }
+
+}
+
 @media (max-width: 768px) {
-  body p {
-    margin: 20px;
-    padding: 20px;
-    font-size: 1rem;
+  .exec {
+    padding: 110px 18px 60px; /* compact hamburger header */
   }
 
-  .page-title h1 {
-    font-size: 2rem;
+  .exec-hero,
+  .exec-closing {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
-}
-.executive-content {
-    padding-top: 120px; /* prevents content hiding behind fixed header */
-    padding-bottom: 60px;
+
+    .exec-hero__logo {
+    max-width: 100px;
+  }
+
+
+  /* Give the stacked text more breathing room on mobile */
+  .exec-hero__body,
+  .exec-closing__body {
+    padding: 0 8px;
+  }
+
+  /* Keep the logo a calm, contained size on mobile */
+
+  .exec-closing {
+    padding: 32px 24px;
+  }
+
+  /* Image above text when stacked */
+  .exec-closing__media {
+    order: -1;
+  }
+
+  .exec-divider {
+    margin: 52px 0;
+  }
 }
