@@ -1,15 +1,35 @@
 :root {
-    --primary: #D4B06A;
-    --accent: #C7A892;
-    --bg: #FDF9F2;
-    --surface: #FFFFFF;
-    --text: #4A4038;
-    --muted: #8A7A6C;
-    --border: #EFE4D3;
-    --hero-gradient-1: #EFE4D3;
-    --hero-gradient-2: #D4B06A;
+    --primary: #d4b06a;
+    --accent: #c7a892;
+    --bg: #fdf9f2;
+    --surface: #ffffff;
+    --text: #4a4038;
+    --muted: #8a7a6c;
+    --border: #efe4d3;
+    --hero-gradient-1: #efe4d3;
+    --hero-gradient-2: #d4b06a;
 }
 
+/* ============================= */
+/* RESET                         */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/* BODY                          */
+/* ============================= */
+
+body {
+    font-family: "Tinos", serif;
+    color: var(--text);
+    line-height: 1.6;
+    background: var(--bg);
+}
 /* ── Partnerships Hero ── */
 /* ── Partnerships Hero ── */
 .partnerships-hero {
@@ -18,7 +38,7 @@
     border-radius: 14px;
     overflow: hidden;
     margin: 40px 24px;
-     padding-top: 5rem;
+    padding-top: 5rem;
 }
 
 .hero-body {
@@ -468,7 +488,13 @@
 }
 
 @media (max-width: 600px) {
-    .form-container { padding: 32px 20px; }
-    .closing-quote { padding: 28px 20px; }
-    .partner-hero { padding-top:5rem;}
+    .form-container {
+        padding: 32px 20px;
+    }
+    .closing-quote {
+        padding: 28px 20px;
+    }
+    .partner-hero {
+        padding-top: 5rem;
+    }
 }
