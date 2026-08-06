@@ -72,26 +72,136 @@ header img{
     margin:0;
 }
 
+/* Hamburger toggle — hidden on desktop, injected by header.js */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100; /* stays above the open overlay */
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 26px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+/* Lock body scroll while the menu is open */
+body.nav-lock {
+  overflow: hidden;
+}
+
 /* Mobile layout */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
   }
 
-/* Hide header (duplicate rule for JS control) */
-.header.hide{
-    top:-220px;
-}
+  /* Hide header (duplicate rule for JS control) */
+  .header.hide {
+    top: -140px;
+  }
 
-  nav {
+  .nav-toggle {
     display: flex;
-    flex-wrap: wrap;
+  }
+
+  /* Full-screen soft, airy overlay menu */
+  nav {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 6px;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(199, 168, 146, 0.18), transparent 55%),
+      radial-gradient(circle at 82% 88%, rgba(212, 176, 106, 0.16), transparent 55%),
+      var(--bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.45s ease, visibility 0.45s ease;
+    z-index: 1050;
+  }
+
+  /* Soft floral accent drifting in the overlay */
+  nav::before,
+  nav::after {
+    content: "❀";
+    position: absolute;
+    color: var(--accent);
+    opacity: 0.28;
+    pointer-events: none;
+  }
+
+  nav::before {
+    top: 12%;
+    right: 16%;
+    font-size: 34px;
+  }
+
+  nav::after {
+    bottom: 14%;
+    left: 14%;
+    font-size: 26px;
+  }
+
+  .header.nav-open nav {
+    opacity: 1;
+    visibility: visible;
   }
 
   nav a {
-    font-size: 14px;
+    font-family: "Tinos", serif;
+    font-size: 1.6rem;
+    color: var(--text);
+    padding: 10px 20px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease, color 0.2s ease;
+  }
+
+  /* Links fade in + up, staggered, once the menu opens */
+  .header.nav-open nav a {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--i, 0) * 70ms + 140ms);
+  }
+
+  /* Hamburger morphs into an X when open */
+  .header.nav-open .nav-toggle__bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .header.nav-open .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .header.nav-open .nav-toggle__bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav,
+  nav a,
+  .nav-toggle__bar {
+    transition: none;
   }
 }
 /* Global image styling */
