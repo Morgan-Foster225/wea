@@ -27,6 +27,11 @@ body {
     color: var(--text);
     line-height: 1.6;
     background-color: var(--bg);
+    background-image: url("../images/floral-gold-bg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Hero section styling */
@@ -206,8 +211,10 @@ img{
 
 /* Testimonials section */
 .testimonials {
-    background: var(--bg);
+    background: transparent;
     text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 /* Individual testimonial */
@@ -305,6 +312,10 @@ img{
     font-size:35px;
     font-weight: 600;
     padding-top: 5rem;
+}
+/* iOS Safari handles fixed backgrounds poorly; scroll with the page instead */
+body {
+    background-attachment: scroll;
 }
 }
 .hero-content{

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <defs>
+    <!-- Line-art lily: broad lance-shaped tepals + short protruding stamens -->
+    <g id="lily" fill="none" stroke="#C7A892" stroke-width="1.1" stroke-linecap="round">
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(0)"/>
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(60)"/>
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(120)"/>
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(180)"/>
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(240)"/>
+      <path d="M0,-1 C-4.5,-6 -4,-14 0,-21 C4,-14 4.5,-6 0,-1 Z" transform="rotate(300)"/>
+      <path d="M0,-1 L1.5,-9" stroke-width="0.7" transform="rotate(25)"/>
+      <path d="M0,-1 L1.5,-9" stroke-width="0.7" transform="rotate(115)"/>
+      <path d="M0,-1 L1.5,-9" stroke-width="0.7" transform="rotate(205)"/>
+      <path d="M0,-1 L1.5,-9" stroke-width="0.7" transform="rotate(295)"/>
+      <ellipse cx="1.5" cy="-9" rx="0.9" ry="1.4" fill="#C7A892" stroke="none" transform="rotate(25)"/>
+      <ellipse cx="1.5" cy="-9" rx="0.9" ry="1.4" fill="#C7A892" stroke="none" transform="rotate(115)"/>
+      <ellipse cx="1.5" cy="-9" rx="0.9" ry="1.4" fill="#C7A892" stroke="none" transform="rotate(205)"/>
+      <ellipse cx="1.5" cy="-9" rx="0.9" ry="1.4" fill="#C7A892" stroke="none" transform="rotate(295)"/>
+    </g>
+
+    <!-- Line-art rose: layered cupped petals wrapped around a furled spiral center -->
+    <g id="rose" fill="none" stroke="#C7A892" stroke-width="1.1" stroke-linecap="round">
+      <path d="M0,-1 C8,-4 9,-12 5,-17 C1,-20 -4,-18 -5,-12 C-6,-6 -3,-2 0,-1 Z" transform="rotate(0)"/>
+      <path d="M0,-1 C8,-4 9,-12 5,-17 C1,-20 -4,-18 -5,-12 C-6,-6 -3,-2 0,-1 Z" transform="rotate(72)"/>
+      <path d="M0,-1 C8,-4 9,-12 5,-17 C1,-20 -4,-18 -5,-12 C-6,-6 -3,-2 0,-1 Z" transform="rotate(144)"/>
+      <path d="M0,-1 C8,-4 9,-12 5,-17 C1,-20 -4,-18 -5,-12 C-6,-6 -3,-2 0,-1 Z" transform="rotate(216)"/>
+      <path d="M0,-1 C8,-4 9,-12 5,-17 C1,-20 -4,-18 -5,-12 C-6,-6 -3,-2 0,-1 Z" transform="rotate(288)"/>
+      <path d="M0,7 Q4.5,4.5 4,0 Q3.5,-4 -1,-5.5 Q-6,-4 -6,1 Q-6,5 -2,7 Q0,8 0,7" stroke-width="1"/>
+      <path d="M0,4 Q2.5,3 2.3,0 Q2,-2.5 -0.5,-3 Q-3,-2.5 -3,0.5 Q-3,3 0,4" stroke-width="0.9"/>
+    </g>
+
+    <!-- Single leaf: simple open outline -->
+    <g id="leaf" fill="none" stroke="#C7A892" stroke-width="1.1" stroke-linecap="round">
+      <path d="M0,0 C9,-3 16,-10 16,-20 C7,-16 0,-9 0,0 Z"/>
+      <path d="M2,-2 C7,-8 11,-13 14,-18" stroke-width="0.7"/>
+    </g>
+
+    <!-- Slender sprig topped with a lily -->
+    <g id="sprig-lily">
+      <path d="M0,0 C1,-24 -2,-48 2,-74" fill="none" stroke="#C7A892" stroke-width="1.1" stroke-linecap="round"/>
+      <use href="#leaf" transform="translate(1,-22) rotate(205) scale(0.7)"/>
+      <use href="#leaf" transform="translate(1,-40) rotate(150) scale(0.65)"/>
+      <use href="#leaf" transform="translate(0,-58) rotate(-160) scale(0.6)"/>
+      <use href="#lily" transform="translate(2,-74) scale(0.85)"/>
+    </g>
+
+    <!-- Slender sprig topped with a rose -->
+    <g id="sprig-rose">
+      <path d="M0,0 C1,-24 -2,-48 2,-74" fill="none" stroke="#C7A892" stroke-width="1.1" stroke-linecap="round"/>
+      <use href="#leaf" transform="translate(1,-22) rotate(205) scale(0.7)"/>
+      <use href="#leaf" transform="translate(1,-40) rotate(150) scale(0.65)"/>
+      <use href="#leaf" transform="translate(0,-58) rotate(-160) scale(0.6)"/>
+      <use href="#rose" transform="translate(2,-74) scale(0.8)"/>
+    </g>
+
+    <!-- A minimal sprig: just stem + leaves, no bloom, for quiet variation -->
+    <g id="stemleaf">
+      <path d="M0,0 C-1,-18 1,-36 -1,-52" fill="none" stroke="#C7A892" stroke-width="1" stroke-linecap="round"/>
+      <use href="#leaf" transform="translate(-1,-16) rotate(200) scale(0.55)"/>
+      <use href="#leaf" transform="translate(0,-34) rotate(-155) scale(0.5)"/>
+    </g>
+  </defs>
+
+  <g opacity="0.3">
+    <use href="#sprig-rose" transform="translate(70,140) rotate(6) scale(1.05)"/>
+    <use href="#stemleaf" transform="translate(260,90) rotate(-10)"/>
+    <use href="#sprig-lily" transform="translate(390,200) rotate(-8) scale(0.9)"/>
+    <use href="#stemleaf" transform="translate(150,300) rotate(12) scale(1.1)"/>
+    <use href="#sprig-rose" transform="translate(320,360) rotate(9) scale(0.85)"/>
+    <use href="#lily" transform="translate(60,380) scale(1.3)"/>
+    <use href="#rose" transform="translate(430,80) scale(1.1)"/>
+  </g>
+</svg>

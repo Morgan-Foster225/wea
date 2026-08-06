@@ -37,7 +37,9 @@ body {
   color: var(--text);
   line-height: 1.6;
   background-color: var(--bg);
-  padding-top: 80px; 
+  background-image: url("../images/floral-pattern.svg");
+  background-repeat: repeat;
+  padding-top: 80px;
 }
 
 /* ============================= */
@@ -489,6 +491,28 @@ section.impact {
   color: var(--text-mid);
   margin-bottom: 0;
 }
+.excutive-summary {
+  font-family: 'Raleway', sans-serif;
+  font-size:40px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--bg);
+  text-decoration: none;
+  border:5px solid var(--primary);
+  padding: 10px 26px;
+  border-radius: var(--pill-radius);
+  box-shadow: 0 4px 14px rgba(212, 176, 106, 0.35);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+ 
+.excutive-summary:hover {
+  background: #c19d54;
+  border-color: #c19d54;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 176, 106, 0.45);
+}
+ 
+
 
 /* ============================= */
 /* CARDS                         */
@@ -695,3 +719,7 @@ section.impact {
     grid-template-columns: 1fr;
   }
 }
+
+/* -----------------------------
+Desktop view  
+------------------------------- */

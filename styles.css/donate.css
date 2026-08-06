@@ -41,7 +41,7 @@ body {
 }
 
 body {
-  background: var(--bg);
+  background: var(--bg) url("../images/floral-pattern.svg") repeat;
   color: var(--text);
   font-family: 'Georgia', serif;
   line-height: 1.7;

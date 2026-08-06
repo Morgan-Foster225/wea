@@ -16,7 +16,7 @@
 }
 
 body {
-  background: var(--bg);
+  background: var(--bg) url("../images/floral-pattern.svg") repeat;
   color: var(--text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.8;
