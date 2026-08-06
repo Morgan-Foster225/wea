@@ -435,3 +435,23 @@ img {
         min-height: 44px;
     }
 }
+/* Botanical corner accents (decorative only) — anchored to the top corners,
+   subtle, behind the content. Absolute (not fixed) so they scroll with the page. */
+.corner {
+  position: absolute;
+  top: 130px;
+  width: 220px;
+  height: auto;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  padding: 5px;
+}
+
+.corner--tl { left: 0; }
+.corner--tr { right: 0; }
+
+@media (max-width: 768px) {
+  .corner { width: 200px; top: 110px; }
+}
+

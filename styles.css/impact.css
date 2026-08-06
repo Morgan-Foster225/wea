@@ -42,7 +42,8 @@ body {
   font-family: "Tinos", serif;
   color: var(--text);
   line-height: 1.6;
-  background: var(--bg) url("../images/floral-pattern.svg") repeat;
+  background: var(--bg) url("../images/floral-lily-tile.png") repeat;
+  background-size: 380px 380px;
 }
 
 /* ============================= */
@@ -277,7 +278,7 @@ p.section-eyebrow, .section-eyebrow {
   font-family: "Tinos", serif;
   font-size: 20px;
   line-height: 1.8;
-  color: var(--muted);
+  color: var(--text);
   max-width: 580px;
 }
 
@@ -285,7 +286,7 @@ p.section-eyebrow, .section-eyebrow {
   font-family: "Tinos", serif;
   font-size: 22px;
   font-style: italic;
-  color: var(--primary);
+  color: var(--muted);
   border-left: 3px solid var(--accent);
   padding: 14px 0 14px 24px;
   text-align: left;
@@ -401,3 +402,23 @@ p.section-eyebrow, .section-eyebrow {
   .video-info h3 { font-size: 20px; }
   .video-info p  { font-size: 15px; }
 }
+/* Botanical corner accents (decorative only) — anchored to the top corners,
+   subtle, behind the content. Absolute (not fixed) so they scroll with the page. */
+.corner {
+  position: absolute;
+  top: 130px;
+  width: 220px;
+  height: auto;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  padding: 5px;
+}
+
+.corner--tl { left: 0; }
+.corner--tr { right: 0; }
+
+@media (max-width: 768px) {
+  .corner { width: 200px; top: 110px; }
+}
+
