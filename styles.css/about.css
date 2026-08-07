@@ -13,9 +13,14 @@
   --accent: #C7A892;
   --bg: #FDF9F2;
   --surface: #FFFFFF;
+  --bg-card: #FFFFFF;
   --text: #4A4038;
+  --text-mid: #6B5A4C;
   --muted: #8A7A6C;
   --border: #EFE4D3;
+  --dark-bg: #3E3226;
+  --card-radius: 18px;
+  --pill-radius: 999px;
 }
 
 /* ============================= */
@@ -35,11 +40,18 @@
 body {
   font-family: 'Tinos', serif;
   color: var(--text);
-  line-height: 1.6;
-  background-color: var(--bg);
-  background-image: url("../images/floral-pattern.svg");
-  background-repeat: repeat;
+  line-height: 1.7;
+  background: var(--bg) url("../images/floral-lily-tile.png") repeat;
+  background-size: 380px 380px;
   padding-top: 80px;
+}
+
+/* Desktop header renders ~103px tall, taller than the 80px mobile offset;
+   bump clearance so the fixed header doesn't clip the top of the carousel. */
+@media (min-width: 769px) {
+  body {
+    padding-top: 112px;
+  }
 }
 
 /* ============================= */
@@ -51,21 +63,21 @@ h1, h2 {
 }
 
 h2 {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 20px;
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--muted);
   margin-bottom: 12px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 17px;
   margin-bottom: 18px;
 }
 
@@ -99,174 +111,6 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* ============================= */
-/* HERO */
-/* ============================= */
-
-.hero {
-  padding: 40px 0 60px;
-  text-align: center;
-}
-
-.hero-card {
-  background: var(--surface);
-  max-width: 750px;
-  margin: auto;
-  padding: 50px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.hero .lead {
-  font-size: 22px;
-  max-width: 700px;
-  margin: 20px auto;
-}
-/* ============================= */
-/* CARD GRID */
-/* ============================= */
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  background-color: rgb(251, 245, 245);
-  padding: 40px;
-  border-radius: 14px;
-  border: 3px solid var(--accent);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-  border-color: var(--primary);
-}
-
-/* ============================= */
-/* IMPACT SECTION */
-/* ============================= */
-
-section.impact {
-  background: var(--bg);
-  padding: 100px 0;
-  max-width: 100%;
-  margin: 0;
-  text-align: center;
-}
-
-.stat {
-  font-family: "Raleway", sans-serif;
-  font-size: 56px;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 25px;
-}
-
-.impact ul {
-  max-width: 600px;
-  margin: auto;
-}
-
-.impact li {
-  font-size: 28px;
-  padding: 6px 0;
-  list-style: none;
-}
-
-/* ============================= */
-/* TWO COLUMN */
-/* ============================= */
-
-.two-column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-}
-
-.two-column ul {
-  list-style: none;
-  padding-left: 0;
-  line-height: 1.8;
-}
-
-/* ============================= */
-/* BUTTONS */
-/* ============================= */
-
-.btn {
-  padding: 14px 28px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-main {
-  background: var(--surface);
-  color: var(--muted);
-  font-weight: 600;
-  font-size: x-large;
-  text-decoration: none;
-}
-
-.btn-main:hover {
-  background: var(--border);
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
-
-@media (min-width: 500px) {
-   .hero {
-    padding: 1.5rem;
-    margin-top: 5rem;
-  }
-
-  .hero-card {
-    padding: 10px;
-  }
-
-  .hero .lead {
-    font-size: 18px;
-    max-width: 90%;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .card {
-    padding: 25px;
-  }
-  
-  .two-column {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .stat {
-    font-size: 40px;
-  }
-
-  .impact li {
-    font-size: 20px;
-  }
-  h2{
-    font-size:20px
-  }
-};
-
-
-
-
 /* === CAROUSEL === */
 .carousel {
   width: 100%;
@@ -296,13 +140,14 @@ section.impact {
 /* === IMAGE fills the slide === */
 .slide-image {
   width: 100%;
-  height: 480px; /* desktop height */
+  height: 560px; /* desktop height */
 }
 
 .slide-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 15%;
   display: block;
 }
 
@@ -341,7 +186,7 @@ section.impact {
 }
 
   .slide-image {
-    height: 420px; /* slightly shorter on mobile */
+    height: 480px; /* slightly shorter on mobile */
   }
 
   .slide-card {
@@ -361,6 +206,20 @@ section.impact {
   }
 }
 
+/* ============================= */
+/* PAGE CONTAINER RHYTHM         */
+/* ============================= */
+
+.hero-banner,
+.approach,
+.cards-section,
+.impact-section,
+.two-col {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding-left: 24px;
+  padding-right: 24px;
+}
 
 /* ============================= */
 /* HERO BANNER                   */
@@ -370,16 +229,18 @@ section.impact {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
-  padding: 2.5rem 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  box-shadow: 0 10px 30px rgba(74, 64, 56, 0.06);
 }
 
 .hero-eyebrow {
   font-family: 'Raleway', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
@@ -387,18 +248,18 @@ section.impact {
 
 .hero-banner h1 {
   font-family: 'Raleway', sans-serif;
-  font-size: 26px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--primary);
   line-height: 1.3;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-banner p {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.75;
   color: var(--text-mid);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto 1.5rem;
 }
 
@@ -433,13 +294,14 @@ section.impact {
 
 .approach {
   background: var(--bg-card);
-  border: 1px solid #fff;
+  border: 1px solid var(--border);
   border-radius: var(--card-radius);
-  padding: 2rem 2.5rem;
+  padding-top: 2.25rem;
+  padding-bottom: 2.25rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem 2rem;
-  margin-bottom: 2rem;
+  gap: 1.5rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(74, 64, 56, 0.05);
 }
 
 .approach-intro {
@@ -450,12 +312,13 @@ section.impact {
   flex-wrap: wrap;
   gap: 0.75rem;
   padding-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
 
 .approach-intro h2 {
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 0;
@@ -468,13 +331,14 @@ section.impact {
   color: var(--accent);
   text-decoration: none;
   border: 1px solid var(--accent);
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: var(--pill-radius);
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .approach-intro a:hover {
-  background: rgba(199, 168, 146, 0.08);
+  background: var(--accent);
+  color: #fff;
 }
 
 .approach-dot {
@@ -482,89 +346,88 @@ section.impact {
   height: 8px;
   border-radius: 50%;
   background: var(--primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.75rem;
 }
 
 .approach-item p {
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--text-mid);
   margin-bottom: 0;
 }
+
 .excutive-summary {
   font-family: 'Raleway', sans-serif;
-  font-size:40px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--bg);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: transparent;
   text-decoration: none;
-  border:5px solid var(--primary);
-  padding: 10px 26px;
+  border: 1px solid var(--accent);
+  padding: 8px 16px;
   border-radius: var(--pill-radius);
-  box-shadow: 0 4px 14px rgba(212, 176, 106, 0.35);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
- 
-.excutive-summary:hover {
-  background: #c19d54;
-  border-color: #c19d54;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(212, 176, 106, 0.45);
-}
- 
 
+.excutive-summary:hover {
+  background: var(--accent);
+  color: #fff;
+}
 
 /* ============================= */
 /* CARDS                         */
 /* ============================= */
 
+.cards-section {
+  padding-top: 0.5rem;
+}
+
 .section-label {
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--text);
   margin-bottom: 1.25rem;
-  padding-left: 2rem;
+  text-align: center;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-    padding-left: 2rem;
+  gap: 20px;
 }
 
 .card {
   background: var(--bg-card);
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid var(--border);
   border-radius: var(--card-radius);
-  padding: 1.25rem 1.25rem 1.5rem;
+  padding: 1.5rem 1.5rem 1.75rem;
   transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 26px rgba(74, 64, 56, 0.09);
   border-color: var(--primary);
 }
 
 .card-icon {
-  font-size: 22px;
+  font-size: 24px;
   color: var(--primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
 }
 
 .card h3 {
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .card p {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--muted);
   margin-bottom: 0;
 }
@@ -576,14 +439,15 @@ section.impact {
 .impact-section {
   background: var(--dark-bg);
   border-radius: var(--card-radius);
-  padding: 2.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   text-align: center;
-  margin-bottom: 2rem;
+  color: var(--bg);
 }
 
 .impact-section h2 {
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 0.75rem;
@@ -591,23 +455,23 @@ section.impact {
 
 .stat-num {
   font-family: 'Raleway', sans-serif;
-  font-size: 52px;
+  font-size: 56px;
   font-weight: 700;
-  color: Var(--primary);
+  color: var(--primary);
   line-height: 1;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
 }
 
 .stat-label {
   font-size: 16px;
   color: var(--accent);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .facility-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
 }
 
@@ -615,7 +479,7 @@ section.impact {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(212, 176, 106, 0.35);
   border-radius: var(--pill-radius);
-  padding: 5px 14px;
+  padding: 6px 16px;
   font-size: 13px;
   color: var(--accent);
 }
@@ -627,19 +491,20 @@ section.impact {
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
 .col-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
-  padding: 1.5rem 1.75rem;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 10px 30px rgba(74, 64, 56, 0.05);
 }
 
 .col-card h2 {
   font-family: 'Raleway', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 1rem;
@@ -654,11 +519,11 @@ section.impact {
 .col-card li {
   font-size: 15px;
   color: var(--text-mid);
-  padding: 5px 0;
+  padding: 6px 0;
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .col-card li::before {
@@ -667,7 +532,7 @@ section.impact {
   height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  margin-top: 7px;
+  margin-top: 8px;
   flex-shrink: 0;
 }
 
@@ -678,9 +543,9 @@ section.impact {
   color: var(--accent);
   border: 1px dashed var(--accent);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
+  padding: 0.9rem 1rem;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 /* ============================= */
@@ -688,17 +553,29 @@ section.impact {
 /* ============================= */
 
 @media (max-width: 768px) {
+  .hero-banner,
+  .approach,
+  .cards-section,
+  .impact-section,
+  .two-col {
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 1.75rem;
+  }
+
   .hero-banner {
-    padding: 1.75rem 1.25rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .hero-banner h1 {
-    font-size: 20px;
+    font-size: 26px;
   }
 
   .approach {
     grid-template-columns: 1fr;
-    padding: 1.5rem;
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
   }
 
   .card-grid {
@@ -710,7 +587,7 @@ section.impact {
   }
 
   .stat-num {
-    font-size: 40px;
+    font-size: 42px;
   }
 }
 
@@ -721,17 +598,19 @@ section.impact {
 }
 
 /* -----------------------------
-Desktop view  
+Desktop view
 ------------------------------- */
 
-/* Botanical corner accents (decorative only) — anchored to the top corners,
-   subtle, behind the content. Absolute (not fixed) so they scroll with the page. */
+/* Botanical corner accents (decorative only) — anchored just below the
+   carousel, subtle, behind the content. Absolute (not fixed) so they scroll
+   with the page. The carousel is opaque and sits on top of anything placed
+   higher than its own height, so these must clear it to be visible at all. */
 .corner {
   position: absolute;
-  top: 130px;
+  top: 640px;
   width: 220px;
   height: auto;
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: none;
   z-index: -1;
   padding: 5px;
@@ -741,6 +620,5 @@ Desktop view
 .corner--tr { right: 0; }
 
 @media (max-width: 768px) {
-  .corner { width: 200px; top: 110px; }
+  .corner { width: 160px; top: 560px; }
 }
-
