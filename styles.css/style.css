@@ -313,9 +313,18 @@ img{
     font-weight: 600;
     padding-top: 5rem;
 }
-/* iOS Safari handles fixed backgrounds poorly; scroll with the page instead */
+/* Recreate the desktop effect (image pinned to the viewport, peeking through
+   wherever content is transparent as the page scrolls) on a narrow screen.
+   The difference from desktop is background-size: "cover" would scale the
+   image up until it fills the tall viewport, which crops away all four
+   corners -- so instead fit it to the screen WIDTH uncropped (its natural
+   height is far shorter than the screen), keeping it fixed so it still acts
+   as a persistent backdrop rather than scrolling away after one section. */
 body {
-    background-attachment: scroll;
+    background-attachment: fixed;
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 }
 .hero-content{
