@@ -27,7 +27,7 @@ body {
     color: var(--text);
     line-height: 1.6;
     background-color: var(--bg);
-    background-image: url("../images/floral-gold-bg.png");
+    background-image: url("../images/floral-gold-bg.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

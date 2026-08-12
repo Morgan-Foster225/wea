@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Donate | WE1A & Divinity House Support Services</title>
+    <meta name="description" content="Support WE1A's transformational programs for women impacted by incarceration, addiction, and trauma. Every donation funds programming and residential support.">
     <link rel="stylesheet" href="styles.css/donate.css">
    <link rel="stylesheet" href="styles.css/header.css">
     <link rel="stylesheet" href="styles.css/footer.css">
 </head>
 <body>
  <header class="header">
-    <div class="logoimg"><img src="images/we1a_logo_no_bg.png"></div>
+    <div class="logoimg"><img src="images/we1a_logo_no_bg.png" alt="WE1A logo"></div>
     <!-- <div class="logo"> WE1A & DHSS</div> -->
     <nav>
           <a href="index.html">Home</a>
@@ -115,32 +116,14 @@
   </div>
   <p class="field-error" id="amountError">Please select or enter a donation amount.</p>
 
-  <form id="donateForm" class="donor-form" novalidate>
-    <div class="form-row">
-      <div class="form-field">
-        <label>First Name</label>
-        <input type="text" required placeholder="Jane">
-        <span class="field-error">First name is required.</span>
-      </div>
-      <div class="form-field">
-        <label>Last Name</label>
-        <input type="text" required placeholder="Doe">
-        <span class="field-error">Last name is required.</span>
-      </div>
-    </div>
-    <div class="form-field">
-      <label>Email</label>
-      <input type="email" required placeholder="jane@example.com">
-      <span class="field-error">Email is required.</span>
-    </div>
-    <button type="submit" class="donate-btn">Donate Now</button>
-  </form>
-
-  <div id="donateSuccess" class="donate-success">
-    <div class="check">🙏</div>
-    <h3>Thank you for your generosity.</h3>
-    <p>Your gift is making a real difference in the lives of women in our community.</p>
-  </div>
+  <!--
+    Payment is handled by a Squarespace Donate Block, not this page.
+    Set SQUARESPACE_DONATE_URL in JavaScript/donate.js to your published
+    Squarespace donate page URL -- clicking below sends the visitor there
+    to enter their info and pay; name/email/card are collected on that page.
+  -->
+  <button type="button" id="donateContinueBtn" class="donate-btn">Continue to Secure Donation</button>
+  <p class="donate-redirect-note">You'll finish your donation securely on our Squarespace giving page.</p>
 </div>
 
 

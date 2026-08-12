@@ -28,7 +28,7 @@ body {
     font-family: "Tinos", serif;
     color: var(--text);
     line-height: 1.6;
-    background: var(--bg) url("../images/floral-lily-tile.png") repeat;
+    background: var(--bg) url("../images/floral-lily-tile.jpg") repeat;
     background-size: 380px 380px;
 }
 /* ── Partnerships Hero ── */

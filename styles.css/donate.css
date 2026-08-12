@@ -41,7 +41,8 @@ body {
 }
 
 body {
-  background: var(--bg) url("../images/floral-pattern.svg") repeat;
+  background: var(--bg) url("../images/floral-wildflower-tile.jpg") repeat;
+  background-size: 420px 280px;
   color: var(--text);
   font-family: 'Georgia', serif;
   line-height: 1.7;
@@ -309,6 +310,13 @@ body {
 .donate-btn:hover {
   background: var(--hero-gradient-2);
   transform: translateY(-2px);
+}
+
+.donate-redirect-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
 }
 
 .donate-btn:active {
