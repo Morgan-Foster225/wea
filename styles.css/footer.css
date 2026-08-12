@@ -1,52 +1,136 @@
-/* Footer styling */
-.footer{
-  background:var(--primary);
-  color:white;
-  padding:60px 20px 20px;
-  font-family: tinos;
-}
- 
-.footer-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap:40px;
+/* Footer styling
+   Scoped local variables so every page renders the same footer
+   regardless of that page's own color theme (some pages, like
+   getInvolved, define a completely different --primary/--text palette). */
+.footer {
+  --footer-bg: #6b5a48;
+  --footer-bg-2: #7c6a54;
+  --footer-heading: #d4b06a;
+  --footer-heading-soft: #efd9a8;
+  --footer-text: #fbf6ee;
+  --footer-muted: rgba(255, 255, 255, 0.82);
+  --footer-border: rgba(255, 255, 255, 0.22);
+
+  position: relative;
+  background: linear-gradient(160deg, var(--footer-bg), var(--footer-bg-2));
+  color: var(--footer-text);
+  padding: 72px 24px 28px;
+  border-radius: 28px 28px 0 0;
+  font-family: "Tinos", Georgia, serif;
+  overflow: hidden;
 }
 
-.footer-column h3{
-    font-size:18px;
-  color:var(--bg);
-  margin-bottom:10px;
+/* Thin gold gradient band echoing the hero sections, ties the footer
+   back to the rest of the page instead of dropping in as a flat block. */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--footer-bg-2), var(--footer-heading) 50%, var(--footer-bg-2));
 }
 
-.footer-column h4{
-  color:var(--bg);
-  margin-bottom:15px;
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 48px;
 }
 
-.footer-column p{
-font-size:16px;
-  line-height:1.6;
-  opacity:.9;
+.footer-column h3 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--footer-heading);
+  margin-bottom: 14px;
+  position: relative;
+  padding-bottom: 14px;
 }
 
-.footer-column a{
-  display:block;
-  color:white;
-  text-decoration:none;
-  margin-bottom:10px;
+/* Short accent underline beneath the brand name, matching the
+   eyebrow/underline motifs used on the hero and about pages. */
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 2px;
+  background: var(--footer-heading);
+  opacity: 0.8;
 }
 
-.footer-column a:hover{
-  color:var(--muted);
+.footer-column h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--footer-heading-soft);
+  margin-bottom: 18px;
 }
 
-.footer-bottom{
-  text-align:center;
-  margin-top:40px;
-  padding-top:20px;
-  border-top:1px solid #444;
-  font-size:14px;
-  opacity:.7;
+.footer-column p {
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 300px;
+  color: var(--footer-muted);
+}
+
+.footer-column a {
+  display: block;
+  width: fit-content;
+  color: var(--footer-text);
+  text-decoration: none;
+  margin-bottom: 12px;
+  font-size: 15px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--footer-heading);
+  transform: translateX(3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--footer-border);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--footer-muted);
+}
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 56px 20px 24px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+
+  .footer-column h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-column p {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .footer-column a {
+    margin-inline: auto;
+  }
+
+  .footer-column a:hover {
+    transform: translateX(0);
+  }
 }
