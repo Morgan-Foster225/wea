@@ -77,6 +77,58 @@
 
   </div><!-- /carousel-wrap -->
 
+<!-- ── Scan-to-Donate QR Carousel ── -->
+<section class="qr-donate">
+  <p class="qr-donate-sub">Scan a code below to donate through your favorite app.</p>
+
+  <div class="qr-carousel" id="qrCarousel">
+    <div class="qr-track" id="qrTrack">
+
+      <div class="qr-slide">
+        <div class="qr-card">
+          <p class="qr-flag">Placeholder — add real link before launch</p>
+          <img src="images/qr-venmo.png" alt="Placeholder QR code for Venmo" class="qr-code-img">
+          <h3>Venmo</h3>
+          <p class="qr-handle">Add your @Venmo handle</p>
+        </div>
+      </div>
+
+      <div class="qr-slide">
+        <div class="qr-card">
+          <p class="qr-flag">Placeholder — add real link before launch</p>
+          <img src="images/qr-cashapp.png" alt="Placeholder QR code for Cash App" class="qr-code-img">
+          <h3>Cash App</h3>
+          <p class="qr-handle">Add your $Cashtag</p>
+        </div>
+      </div>
+
+      <div class="qr-slide">
+        <div class="qr-card">
+          <p class="qr-flag">Placeholder — add real link before launch</p>
+          <img src="images/qr-paypal.png" alt="Placeholder QR code for PayPal" class="qr-code-img">
+          <h3>PayPal</h3>
+          <p class="qr-handle">Add your paypal.me link</p>
+        </div>
+      </div>
+
+      <div class="qr-slide">
+        <div class="qr-card">
+          <p class="qr-flag">Placeholder — add real link before launch</p>
+          <img src="images/qr-zelle.png" alt="Placeholder QR code for Zelle" class="qr-code-img">
+          <h3>Zelle</h3>
+          <p class="qr-handle">Add your Zelle email or phone</p>
+        </div>
+      </div>
+
+    </div><!-- /qr-track -->
+
+    <button class="qr-nav qr-prev" id="qrPrevBtn" aria-label="Previous payment method">&#8592;</button>
+    <button class="qr-nav qr-next" id="qrNextBtn" aria-label="Next payment method">&#8594;</button>
+
+    <div class="qr-dots" id="qrDotsContainer" role="tablist" aria-label="Payment method slides"></div>
+  </div><!-- /qr-carousel -->
+</section>
+
 <div class="donate-impact">
   <div class="impact-stat">
     <span class="count" data-target="6,600" data-suffix="+">0+</span>
@@ -91,41 +143,6 @@
     <span class="label">Years of Impact</span>
   </div>
 </div>
-
-<div class="donate-section">
-  <h2>Choose an Amount</h2>
-  <p class="sub">Every dollar goes directly to programming and residential support.</p>
-
-  <div class="frequency-toggle">
-    <button class="freq-btn active">One-time</button>
-    <button class="freq-btn">Monthly</button>
-  </div>
-
-  <div class="amount-grid">
-    <button class="amount-tile">$25 <span class="impact-note"></span></button>
-    <button class="amount-tile selected">$50 <span class="impact-note"></span></button>
-    <button class="amount-tile">$100 <span class="impact-note"></span></button>
-    <button class="amount-tile">$250 <span class="impact-note"></span></button>
-    <button class="amount-tile">$500 <span class="impact-note"></span></button>
-    <button class="amount-tile">$1,000 <span class="impact-note"></span></button>
-  </div>
-
-  <div class="custom-amount-wrap">
-    <span class="dollar">$</span>
-    <input type="number" id="customAmount" placeholder="Enter custom amount" min="1">
-  </div>
-  <p class="field-error" id="amountError">Please select or enter a donation amount.</p>
-
-  <!--
-    Payment is handled by a Squarespace Donate Block, not this page.
-    Set SQUARESPACE_DONATE_URL in JavaScript/donate.js to your published
-    Squarespace donate page URL -- clicking below sends the visitor there
-    to enter their info and pay; name/email/card are collected on that page.
-  -->
-  <button type="button" id="donateContinueBtn" class="donate-btn">Continue to Secure Donation</button>
-  <p class="donate-redirect-note">You'll finish your donation securely on our Squarespace giving page.</p>
-</div>
-
 
 
     <footer class="footer">

@@ -3,60 +3,74 @@
    ============================================ */
 
 
-/* ── CAROUSEL ──────────────────────────────── */
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const track  = document.getElementById("carouselTrack");
-const dotsEl = document.getElementById("dotsContainer");
+/* ── CAROUSEL (reusable — supports multiple independent instances) ── */
+function initCarousel({ wrapId, trackId, dotsId, prevId, nextId, dotClass, autoRotateMs = 6000 }) {
+  const wrap  = document.getElementById(wrapId);
+  const track = document.getElementById(trackId);
+  const dotsEl = document.getElementById(dotsId);
+  if (!wrap || !track || !dotsEl) return;
 
-// Build dots ONCE
-slides.forEach((_, i) => {
-  const dot = document.createElement("button");
-  dot.className = "dot" + (i === 0 ? " active" : "");
-  dot.setAttribute("aria-label", "Go to slide " + (i + 1));
-  dot.addEventListener("click", () => showSlide(i));
-  dotsEl.appendChild(dot);
-});
+  const slides = track.children;
+  let current = 0;
 
-function showSlide(index) {
-  currentSlide = (index + slides.length) % slides.length;
-  track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
-  document.querySelectorAll(".dot").forEach((d, i) => {
-    d.classList.toggle("active", i === currentSlide);
+  // Build dots ONCE
+  Array.from(slides).forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = dotClass + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+    dot.addEventListener("click", () => showSlide(i));
+    dotsEl.appendChild(dot);
   });
+
+  function showSlide(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = "translateX(-" + (current * 100) + "%)";
+    dotsEl.querySelectorAll("." + dotClass).forEach((d, i) => {
+      d.classList.toggle("active", i === current);
+    });
+  }
+
+  function nextSlide() { showSlide(current + 1); }
+  function prevSlide()  { showSlide(current - 1); }
+
+  // Arrow buttons
+  const prevBtn = document.getElementById(prevId);
+  const nextBtn = document.getElementById(nextId);
+  if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+  if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+  // Keyboard — scoped to this carousel so a second instance doesn't fight it
+  wrap.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft")  prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
+  });
+
+  // Swipe
+  let touchStartX = 0;
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  track.addEventListener("touchend", (e) => {
+    const delta = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) delta > 0 ? nextSlide() : prevSlide();
+  }, { passive: true });
+
+  // Auto-rotate, paused on hover
+  let autoTimer = setInterval(nextSlide, autoRotateMs);
+  wrap.addEventListener("mouseenter", () => clearInterval(autoTimer));
+  wrap.addEventListener("mouseleave", () => { autoTimer = setInterval(nextSlide, autoRotateMs); });
 }
 
-function nextSlide() { showSlide(currentSlide + 1); }
-function prevSlide()  { showSlide(currentSlide - 1); }
-
-// Arrow buttons
-document.getElementById("prevBtn").addEventListener("click", prevSlide);
-document.getElementById("nextBtn").addEventListener("click", nextSlide);
-
-// Keyboard
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowLeft")  prevSlide();
-  if (e.key === "ArrowRight") nextSlide();
+initCarousel({
+  wrapId: "carousel", trackId: "carouselTrack", dotsId: "dotsContainer",
+  prevId: "prevBtn", nextId: "nextBtn", dotClass: "dot",
 });
 
-// Swipe
-let touchStartX = 0;
-track.addEventListener("touchstart", (e) => {
-  touchStartX = e.touches[0].clientX;
-}, { passive: true });
-
-track.addEventListener("touchend", (e) => {
-  const delta = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(delta) > 40) delta > 0 ? nextSlide() : prevSlide();
-}, { passive: true });
-
-// Auto-rotate every 6 seconds
-let autoTimer = setInterval(nextSlide, 6000);
-
-// Pause on hover
-const wrap = document.getElementById("carousel");
-wrap.addEventListener("mouseenter", () => clearInterval(autoTimer));
-wrap.addEventListener("mouseleave", () => { autoTimer = setInterval(nextSlide, 6000); });
+initCarousel({
+  wrapId: "qrCarousel", trackId: "qrTrack", dotsId: "qrDotsContainer",
+  prevId: "qrPrevBtn", nextId: "qrNextBtn", dotClass: "qr-dot",
+});
 
 
 /* ── IMPACT COUNTERS ───────────────────────── */
@@ -120,59 +134,24 @@ if (customInput) {
 }
 
 
-/* ── FORM VALIDATION ───────────────────────── */
-const form        = document.getElementById("donateForm");
-const successMsg  = document.getElementById("donateSuccess");
+/* ── CONTINUE TO SQUARESPACE DONATE PAGE ───── */
+// Replace with the published URL of your Squarespace Donate Block page.
+const SQUARESPACE_DONATE_URL = "https://YOUR-SITE.squarespace.com/donate";
+
+const continueBtn = document.getElementById("donateContinueBtn");
 const amountError = document.getElementById("amountError");
 
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    let valid = true;
-
+if (continueBtn) {
+  continueBtn.addEventListener("click", function () {
     const selectedTile = document.querySelector(".amount-tile.selected");
     const customVal    = customInput ? customInput.value.trim() : "";
 
     if (!selectedTile && !customVal) {
       amountError.classList.add("visible");
-      valid = false;
-    } else {
-      amountError.classList.remove("visible");
+      return;
     }
 
-    form.querySelectorAll("input[required]").forEach(input => {
-      const errorSpan = input.nextElementSibling;
-      const isEmpty   = input.value.trim() === "";
-      const badEmail  = input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-
-      if (isEmpty || badEmail) {
-        input.classList.add("error");
-        if (errorSpan && errorSpan.classList.contains("field-error")) {
-          errorSpan.classList.add("visible");
-        }
-        valid = false;
-      } else {
-        input.classList.remove("error");
-        if (errorSpan && errorSpan.classList.contains("field-error")) {
-          errorSpan.classList.remove("visible");
-        }
-      }
-    });
-
-    if (valid) {
-      form.style.display = "none";
-      successMsg.classList.add("visible");
-      successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  });
-
-  form.querySelectorAll("input[required]").forEach(input => {
-    input.addEventListener("input", () => {
-      input.classList.remove("error");
-      const errorSpan = input.nextElementSibling;
-      if (errorSpan && errorSpan.classList.contains("field-error")) {
-        errorSpan.classList.remove("visible");
-      }
-    });
+    amountError.classList.remove("visible");
+    window.location.href = SQUARESPACE_DONATE_URL;
   });
 }
