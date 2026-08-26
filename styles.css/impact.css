@@ -42,7 +42,7 @@ body {
   font-family: "Tinos", serif;
   color: var(--text);
   line-height: 1.6;
-  background: var(--bg) url("../images/floral-lily-tile.jpg") repeat;
+  background: var(--bg) url("../images/floral-lily-tile.png") repeat;
   background-size: 380px 380px;
 }
 
@@ -287,13 +287,16 @@ p.section-eyebrow, .section-eyebrow {
   font-size: 22px;
   font-style: italic;
   color: var(--muted);
+  background: var(--surface);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .08);
+  border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
-  padding: 14px 0 14px 24px;
+  padding: 24px 28px;
   text-align: left;
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.5;
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 /* ============================= */

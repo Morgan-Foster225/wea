@@ -41,7 +41,7 @@ body {
 }
 
 body {
-  background: var(--bg) url("../images/floral-wildflower-tile.jpg") repeat;
+  background: var(--bg) url("../images/floral-wildflower-tile.png") repeat;
   background-size: 420px 280px;
   color: var(--text);
   font-family: 'Georgia', serif;
