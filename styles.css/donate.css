@@ -464,6 +464,22 @@ section > p {
 
 .qr-dot:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
+.qr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.qr-card img {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto 1.25rem;
+  border-radius: 12px;
+}
+
 @media (max-width: 640px) {
   .qr-carousel { padding: 0 2.25rem; }
   .qr-nav { width: 34px; height: 34px; font-size: 16px; }
